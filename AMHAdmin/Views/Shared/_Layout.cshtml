@@ -1,0 +1,232 @@
+﻿@using AMH.Common;
+@using AMHAdmin.Pages;
+
+@{ /**/
+    var curController = Convert.ToString(ViewContext.RouteData.Values["Controller"]);
+    var curAction = Convert.ToString(ViewContext.RouteData.Values["Action"]);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- SEO & Metatags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no" /> <!-- Remove Tap Highlight on Windows Phone IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="subject" content="">
+    <meta name="copyright" content="">
+    <meta name=author content="">
+    <title>GinnyBuddy | @ViewBag.Title</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/assets/fonts/style.css">
+    @*<link rel="stylesheet" href="~/assets/vendors/simplebar/dist/simplebar.min.css">*@
+    <link rel="stylesheet" href="~/assets/vendors/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.25/b-1.7.1/b-html5-1.7.1/b-print-1.7.1/r-2.2.9/datatables.min.css" />
+
+    <link rel="stylesheet" href="~/assets/css/main.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <style>
+        .error {
+            color: red;
+            margin-bottom: 0px;
+        }
+
+        audio {
+            width: 215px !important;
+            height: 40px !important;
+        }
+    </style>
+</head>
+<body class="aside-show">
+
+    <header>
+        <div class="container-fluid">
+            <div class="navbar pl-0">
+                <button class="btn btn-hover-secondary btn-icon toggle-sidebar" type="button">
+                    <i class="tio-menu-hamburger fs-20"></i>
+                </button>
+                <ul class="nav">
+                    <!-- Profile -->
+                    <li>
+                        <div class="dropdown dropdown-profile ml-2">
+                            <!-- Dropdown Button -->
+                            <button class="btn btn-hover-secondary btn-icon" type="button" id="profileDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="avatar">
+                                    <img alt="avatar" src="~/assets/images/avatar/Image.jpg" class="rounded-circle">
+                                </span>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
+                                <!-- Dropdown Head -->
+                                <div class="dropdown-head justify-content-start">
+                                    <div class="avatar">
+                                        <img alt="avatar" src="~/assets/images/avatar/Image.jpg" class="rounded-circle">
+                                    </div>
+                                    <div class="text-truncate ml-2">
+                                        <h6 class="mb-1">@ProjectSession.AdminName</h6>
+                                        <p class="fs-13 mb-0 text-muted">@ProjectSession.LoginAdminEmail </p>
+                                        @*<h6 class="mb-1">@ProjectSession.UserType</h6>*@
+                                    </div>
+                                </div>
+                                <!-- Dropdown Body -->
+                                <div class="dropdown-body">
+                                    <ul class="list-unstyled py-2">
+                                        @*<li><a class="dropdown-item fs-14" href="@Url.Action(Actions.Index,Controllers.Organization)">My Profile</a></li>*@
+
+                                        <li><a class="dropdown-item fs-14" href="@Url.Action("ChangePassword","ChangePassword")">Change Password</a></li>
+                                        <li>
+                                            <form action="@Url.Action("Signout","Authentication")" method="post">
+                                                <button class="dropdown-item fs-14" type="submit">
+                                                    Sign out
+                                                </button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!-- Sidebar -->
+    <aside>
+        <div class="navbar-vertical">
+            <div class="navbar-brand-wrapper custome-navabar-logo">
+                <a href="" class="navbar-brand mr-0 beetech-logo">
+                    <img src="~/assets/images/logo/ginnybuddy.png" />
+                    @*<img src="~/assets/images/logo/ginnybuddy.jpg">*@
+                    @*<h4 class="fw-bold text-center">GinnyBuddy</h4>*@
+                </a>
+            </div>
+            <div class="navbar-vertical-content" data-simplebar>
+                <ul class="navbar-vertical-nav">
+                    @*<li class="navbar-vertical-item">
+                            <a href="@Url.Action("Index","Home")" id="mnHome" class="navbar-vertical-link">
+                                <div class="navbar-vertical-icon"><i class="tio-dashboard-vs-outlined"></i></div>
+                                Dashboard
+                            </a>
+                        </li>*@
+                    <li class="navbar-vertical-item">
+                        <a href="@Url.Action("Index","Customer")" id="customer" class="navbar-vertical-link">
+                            <div class="navbar-vertical-icon"><i class="fa fa-users"></i></div>
+                            Customers
+                        </a>
+                    </li>
+                    @*<li class="navbar-vertical-item">
+                            <a href="@Url.Action("Index","Student")" id="student" class="navbar-vertical-link">
+                                <div class="navbar-vertical-icon"><i class="fa fa-users"></i></div>
+                                Student
+                            </a>
+                        </li>*@
+                    <li class="navbar-vertical-item">
+                        <a href="@Url.Action("Index","Employees")" id="employee" class="navbar-vertical-link">
+                            <div class="navbar-vertical-icon"><i class="fa fa-heartbeat"></i></div>
+                            Employee
+                        </a>
+                    </li>
+
+                    <li class="navbar-vertical-item">
+                        <a href="@Url.Action("Index","Appointment")" id="apo" class="navbar-vertical-link">
+                            <div class="navbar-vertical-icon"><i class="fa fa-dove"></i></div>
+                            Appointment
+                        </a>
+                    </li>
+                    <li class="navbar-vertical-item">
+                        <a href="@Url.Action("Calendar","Employees")" id="calendar" class="navbar-vertical-link">
+                            <div class="navbar-vertical-icon"><i class="fa fa-dragon"></i></div>
+                            Calendar
+                        </a>
+                    </li>
+
+                    <li class="navbar-vertical-item">
+                        <a href="@Url.Action("Index","ManageUser")" id="mnManageUser" class="navbar-vertical-link">
+                            <div class="navbar-vertical-icon"><i class="fa fa-clock"></i></div>
+                            CLock
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <main>
+        @RenderBody()
+    </main>
+    <!-- Menu Backdrop -->
+    <div class="backdrop d-none"></div>
+
+
+    <!-- Scripts -->
+    <script src="~/assets/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="~/assets/js/jquery.validate.js"></script>
+    <script src="~/assets/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*<script src="~/assets/vendors/simplebar/dist/simplebar.min.js"></script>*@
+    <script src="~/assets/vendors/daterangepicker/moment.min.js"></script>
+    <script src="~/assets/vendors/daterangepicker/daterangepicker.js"></script>
+    @*<script src="~/assets/vendors/apexcharts/dist/apexcharts.min.js"></script>*@
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.25/b-1.7.1/b-html5-1.7.1/b-print-1.7.1/r-2.2.9/datatables.min.js"></script>
+    <!-- Main Js -->
+    <script src="~/assets/js/main.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            setSelectedMenu();
+        });
+
+        function setSelectedMenu() {
+            $(".main-menu").find("li.active").each(function () {
+                $(this).removeClass("active");
+            });
+            switch ('@curController') {
+
+                case '@Controllers.Customer':
+                    setActiveLink($('#customer').attr('id'));
+                    break;
+                @*case '@Controllers.Student':
+                    setActiveLink($('#student').attr('id'));
+                    break;*@
+                case '@Controllers.Employees':
+                    setActiveLink($('#employee').attr('id'));
+                    break;
+                case '@Controllers.Employees':
+                    setActiveLink($('#calendar').attr('id'));
+                    break;
+                case '@Controllers.Appointment':
+                    setActiveLink($('#apo').attr('id'));
+                    break;
+
+                case '@Controllers.ManageUser':
+                    setActiveLink($('#mnManageUser').attr('id'));
+                    break;
+
+            }
+        }
+
+        function setActiveLink(menuId) {
+            $("#" + menuId).addClass("active");
+        };
+
+        function setSubActiveLink(menuId) {
+            $(".custom").find("a[id='" + menuId + "']").parent("li").addClass("active");
+            //$(".items").find("a[id='" + menuId + "']").parent("li").append("<span class='selected'></span>");
+        };
+    </script>
+    @RenderSection("Scripts", false)
+    @RenderSection("dashboardscripts", false)
+
+</body>
+</html>
