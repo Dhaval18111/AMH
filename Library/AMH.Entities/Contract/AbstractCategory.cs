@@ -9,12 +9,11 @@ using System.Threading.Tasks;
 
 namespace AMH.Entities.Contract
 {
-    public abstract class AbstractAdmin
+    public abstract class AbstractCategory
     {
-        public int Admin_Id { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public int ContactNo { get; set; }
+        public int Category_Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
         public bool IsActive { get; set; }
         public DateTime Createddate { get; set; }
         public int Createdby { get; set; }

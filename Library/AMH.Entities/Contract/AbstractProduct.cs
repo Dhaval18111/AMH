@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 
 namespace AMH.Entities.Contract
 {
-    public abstract class AbstractAdmin
+    public abstract class AbstractProduct
+
     {
-        public int Admin_Id { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public int ContactNo { get; set; }
+        public int Product_Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int Price { get; set; }
+        public int Quantity { get; set; }
+        public string Image { get; set; }
+        public int Subcat_Id { get; set; }
         public bool IsActive { get; set; }
         public DateTime Createddate { get; set; }
         public int Createdby { get; set; }
@@ -23,7 +27,7 @@ namespace AMH.Entities.Contract
         public DateTime Deleteddate { get; set; }
         public int Deletedby { get; set; }
 
-        [NotMapped]
+       [NotMapped]
         public string CreateddateStr => Createddate != null ? Createddate.ToString("dd-MMM-yyyy hh:mm tt") : "-";
         [NotMapped]
         public string UpdateddateStr => Updateddate != null ? Updateddate.ToString("dd-MMM-yyyy hh:mm tt") : "-";
