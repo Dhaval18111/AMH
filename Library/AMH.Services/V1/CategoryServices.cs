@@ -25,9 +25,9 @@ namespace AMH.Services.V1
         {
             return this.abstractCategoryDao.Category_ById(Category_Id);
         }
-        public override PagedList<AbstractCategory> Category_All(PageParam pageParam, string search)
+        public override PagedList<AbstractCategory> Category_All(PageParam pageParam, string search,int IsVisibleAll)
         {
-            return this.abstractCategoryDao.Category_All(pageParam, search);
+            return this.abstractCategoryDao.Category_All(pageParam, search, IsVisibleAll);
         }
         public override SuccessResult<AbstractCategory> Category_Upsert(AbstractCategory abstractCategory)
         {

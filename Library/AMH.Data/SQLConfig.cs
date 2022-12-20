@@ -11,7 +11,68 @@ namespace AMH.Data
     /// </summary>
     internal sealed class SQLConfig
     {
+        #region Wishlist
+        public const string Wishlist_Upsert = "Wishlist_Upsert";
+        public const string Wishlist_ById = "Wishlist_ById";
+        public const string Wishlist_All = "Wishlist_All";
+        public const string Wishlist_ActInact = "Wishlist_ActInact";
+        public const string Wishlist_Delete = "Wishlist_Delete";
+        #endregion
 
+        #region Users
+        public const string Users_Upsert = "Users_Upsert";
+        public const string Users_ById = "Users_ById";
+        public const string Users_All = "Users_All";
+        public const string Users_ActInact = "Users_ActInact";
+        public const string Users_Delete = "Users_Delete";
+        #endregion
+
+        #region SubCategory
+        public const string SubCategory_Upsert = "SubCategory_Upsert";
+        public const string SubCategory_ById = "SubCategory_ById";
+        public const string SubCategory_All = "SubCategory_All";
+        public const string SubCategory_ActInact = "SubCategory_ActInact";
+        public const string SubCategory_Delete = "SubCategory_Delete";
+        #endregion
+
+        #region Product
+        public const string Product_Upsert = "Product_Upsert";
+        public const string Product_ById = "Product_ById";
+        public const string Product_All = "Product_All";
+        public const string Product_ActInact = "Product_ActInact";
+        public const string Product_Delete = "Product_Delete";
+        #endregion
+
+        #region OrderAMH
+        public const string OrderAMH_Upsert = "OrderAMH_Upsert";
+        public const string OrderAMH_ById = "OrderAMH_ById";
+        public const string OrderAMH_All = "OrderAMH_All";
+        public const string OrderAMH_ActInact = "OrderAMH_ActInact";
+        public const string OrderAMH_Delete = "OrderAMH_Delete";
+        #endregion
+        #region Gallery
+        public const string Gallery_Upsert = "Gallery_Upsert";
+        public const string Gallery_ById = "Gallery_ById";
+        public const string Gallery_All = "Gallery_All";
+        public const string Gallery_ActInact = "Gallery_ActInact";
+        public const string Gallery_Delete = "Gallery_Delete";
+        #endregion
+
+        #region Feedback
+        public const string Feedback_Upsert = "Feedback_Upsert";
+        public const string Feedback_ById = "Feedback_ById";
+        public const string Feedback_All = "Feedback_All";
+        public const string Feedback_ActInact = "Feedback_ActInact";
+        public const string Feedback_Delete = "Feedback_Delete";
+        #endregion
+
+        #region Cart
+        public const string Cart_Upsert = "Cart_Upsert";
+        public const string Cart_ById = "Cart_ById";
+        public const string Cart_All = "Cart_All";
+        public const string Cart_ActInact = "Cart_ActInact";
+        public const string Cart_Delete = "Cart_Delete";
+        #endregion
         #region Category
         public const string Category_Upsert = "Category_Upsert";
         public const string Category_ById = "Category_ById";
@@ -82,13 +143,13 @@ namespace AMH.Data
         #endregion
 
         #region Admin
-        public const string Admin_SignOut = "Admin_SignOut";
-        public const string Admin_SignIn = "Admin_SignIn";
-        public const string Admin_ChangePassword = "Admin_ChangePassword";
+        //public const string Admin_SignOut = "Admin_SignOut";
+        //public const string Admin_SignIn = "Admin_SignIn";
+        //public const string Admin_ChangePassword = "Admin_ChangePassword";
         public const string Admin_Upsert = "Admin_Upsert";
         public const string Admin_ById = "Admin_ById";
         public const string Admin_All = "Admin_All";
-        public const string Admin_ActInAct = "Admin_ActInAct";
+        public const string Admin_ActInact = "Admin_ActInact";
         #endregion
 
         #region AdminType

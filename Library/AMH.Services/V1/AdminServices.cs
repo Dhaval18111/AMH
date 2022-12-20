@@ -19,40 +19,39 @@ namespace AMH.Services.V1
             this.abstractAdminDao = abstractAdminDao;
         }
 
-        public override bool Admin_SignOut(long Id)
-        {
-            return this.abstractAdminDao.Admin_SignOut(Id);
-        }
-        public override SuccessResult<AbstractAdmin> Admin_SignIn(string Email, string Password)
-        {
-            return this.abstractAdminDao.Admin_SignIn(Email, Password);
-        }
-        public override SuccessResult<AbstractAdmin> Admin_ChangePassword(long Id, string OldPassword, string NewPassword, string ConfirmPassword)
-        {
-            return this.abstractAdminDao.Admin_ChangePassword(Id, OldPassword, NewPassword, ConfirmPassword);
-        }
+        //public override bool Admin_SignOut(long Id)
+        //{
+        //    return this.abstractAdminDao.Admin_SignOut(Id);
+        //}
+        //public override SuccessResult<AbstractAdmin> Admin_SignIn(string Email, string Password)
+        //{
+        //    return this.abstractAdminDao.Admin_SignIn(Email, Password);
+        //}
+        //public override SuccessResult<AbstractAdmin> Admin_ChangePassword(long Id, string OldPassword, string NewPassword, string ConfirmPassword)
+        //{
+        //    return this.abstractAdminDao.Admin_ChangePassword(Id, OldPassword, NewPassword, ConfirmPassword);
+        //}
 
-        public override SuccessResult<AbstractAdmin> Admin_ById(long Id)
+        public override SuccessResult<AbstractAdmin> Admin_ById(int Admin_Id)
         {
-            return this.abstractAdminDao.Admin_ById(Id);
+            return this.abstractAdminDao.Admin_ById(Admin_Id);
         }
-        public override PagedList<AbstractAdmin> Admin_All(PageParam pageParam, string search, string Name, string Email, string MobileNumber, long AdminTypeId, long IsActive)
+        public override PagedList<AbstractAdmin> Admin_All(PageParam pageParam, string search,int IsVisibleAll)
         {
-            return this.abstractAdminDao.Admin_All(pageParam, search, Name,Email,MobileNumber,AdminTypeId,IsActive);
+            return this.abstractAdminDao.Admin_All(pageParam, search, IsVisibleAll);
         }
         public override SuccessResult<AbstractAdmin> Admin_Upsert(AbstractAdmin abstractAdmin)
         {
             return this.abstractAdminDao.Admin_Upsert(abstractAdmin);
         }
-        public override SuccessResult<AbstractAdmin> Admin_ActInAct(long Id, long UpdatedBy)
+        public override SuccessResult<AbstractAdmin> Admin_ActInact(int Admin_Id, int Updatedby)
         {
-            return this.abstractAdminDao.Admin_ActInAct(Id, UpdatedBy);
+            return this.abstractAdminDao.Admin_ActInact(Admin_Id, Updatedby);
         }
 
-        // Admin Type
-        public override PagedList<AbstractAdminType> AdminType_All(PageParam pageParam, string search)
+        public override SuccessResult<AbstractAdmin> Admin_Delete(int Admin_Id, int Deletedby)
         {
-            return this.abstractAdminDao.AdminType_All(pageParam, search);
+            return this.abstractAdminDao.Admin_Delete(Admin_Id, Deletedby);
         }
     }
 }

@@ -75,14 +75,15 @@ namespace AMH.Data.V1
         }
 
 
-        public override PagedList<AbstractCategory> Category_All(PageParam pageParam, string search)
+        public override PagedList<AbstractCategory> Category_All(PageParam pageParam, string search,int IsVisibleAll)
         {
             PagedList<AbstractCategory> Category = new PagedList<AbstractCategory>();
 
             var param = new DynamicParameters();
-            param.Add("@Offset", pageParam.Offset, dbType: DbType.Int64, direction: ParameterDirection.Input);
-            param.Add("@Limit", pageParam.Limit, dbType: DbType.Int64, direction: ParameterDirection.Input);
+            param.Add("@Offset", pageParam.Offset, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            param.Add("@Limit", pageParam.Limit, dbType: DbType.Int32, direction: ParameterDirection.Input);
             param.Add("@Search", search, dbType: DbType.String, direction: ParameterDirection.Input);
+            param.Add("@IsVisibleAll", IsVisibleAll, dbType: DbType.Int32, direction: ParameterDirection.Input);
           
 
             using (SqlConnection con = new SqlConnection(Configurations.ConnectionString))

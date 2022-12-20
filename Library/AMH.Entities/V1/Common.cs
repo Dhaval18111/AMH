@@ -24,6 +24,7 @@ namespace AMH.Entities.V1
     public class Payment : AbstractPayment { }
     public class Product : AbstractProduct { }
     public class SubCategory : AbstractSubCategory { }
+    public class Wishlist : AbstractWishlist { }
     public class Users : AbstractUsers { }
     //public class Appointment : AbstractAppointment { }
     public class Customer : AbstractCustomer { }
@@ -34,6 +35,6 @@ namespace AMH.Entities.V1
     public class MasterEmCountry : AbstractMasterEmCountry { }
     public class MasterState : AbstractMasterState { }
     public class MasterEmState : AbstractMasterEmState { }
-    public class AdminType : AbstractAdminType { }
+   
     
 }

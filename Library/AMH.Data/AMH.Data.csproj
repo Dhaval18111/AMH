@@ -85,6 +85,13 @@
   <ItemGroup>
     <Compile Include="AbstractBaseDao.cs" />
     <Compile Include="Contract\AbstractAppointmentDao.cs" />
+    <Compile Include="Contract\AbstractSubCategoryDao.cs" />
+    <Compile Include="Contract\AbstractProductDao.cs" />
+    <Compile Include="Contract\AbstractOrderAMHDao.cs" />
+    <Compile Include="Contract\AbstractGalleryDao.cs" />
+    <Compile Include="Contract\AbstractFeedbackDao.cs" />
+    <Compile Include="Contract\AbstractCartDao.cs" />
+    <Compile Include="Contract\AbstractCategoryDao.cs" />
     <Compile Include="Contract\AbstractStudentDao.cs" />
     <Compile Include="Contract\AbstractEmployeesDao.cs" />
     <Compile Include="Contract\AbstractCustomerDao.cs" />
@@ -94,6 +101,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLConfig.cs" />
     <Compile Include="V1\AppointmentDao.cs" />
+    <Compile Include="V1\SubCategoryDao.cs" />
+    <Compile Include="V1\ProductDao.cs" />
+    <Compile Include="V1\OrderAMHDao.cs" />
+    <Compile Include="V1\GalleryDao.cs" />
+    <Compile Include="V1\FeedbackDao.cs" />
+    <Compile Include="V1\CartDao.cs" />
+    <Compile Include="V1\CategoryDao.cs" />
     <Compile Include="V1\StudentDao.cs" />
     <Compile Include="V1\EmployeesDao.cs" />
     <Compile Include="V1\CustomerDao.cs" />

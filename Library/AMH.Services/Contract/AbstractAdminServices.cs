@@ -10,16 +10,16 @@ namespace AMH.Services.Contract
 {
     public abstract class AbstractAdminServices
     {
-        public abstract bool Admin_SignOut(long Id);
-        public abstract SuccessResult<AbstractAdmin> Admin_ChangePassword(long Id, string OldPassword, string NewPassword, string ConfirmPassword);
-        public abstract SuccessResult<AbstractAdmin> Admin_SignIn(string Email, string Password);
-        public abstract SuccessResult<AbstractAdmin> Admin_ById(long Id);
-        public abstract PagedList<AbstractAdmin> Admin_All(PageParam pageParam, string search, string Name, string Email, string MobileNumber, long AdminTypeId, long IsActive);
+        //public abstract bool Admin_SignOut(long Id);
+        //public abstract SuccessResult<AbstractAdmin> Admin_ChangePassword(long Id, string OldPassword, string NewPassword, string ConfirmPassword);
+        //public abstract SuccessResult<AbstractAdmin> Admin_SignIn(string Email, string Password);
+        public abstract SuccessResult<AbstractAdmin> Admin_ById(int Admin_Id);
+        public abstract PagedList<AbstractAdmin> Admin_All(PageParam pageParam, string search,int IsVisibleAll);
         public abstract SuccessResult<AbstractAdmin> Admin_Upsert(AbstractAdmin abstractAdmin);
-        public abstract SuccessResult<AbstractAdmin> Admin_ActInAct(long Id, long UpdatedBy);
+        public abstract SuccessResult<AbstractAdmin> Admin_ActInact(int Admin_Id, int Updatedby);
+        public abstract SuccessResult<AbstractAdmin> Admin_Delete(int Admin_Id, int Deletedby);
 
-        // Admin Type
-        public abstract PagedList<AbstractAdminType> AdminType_All(PageParam pageParam, string Search);
+      
 
     }
 }

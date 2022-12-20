@@ -12,7 +12,7 @@ namespace AMH.Services.Contract
     {
        
         public abstract SuccessResult<AbstractCategory> Category_ById(int Category_Id);
-        public abstract PagedList<AbstractCategory> Category_All(PageParam pageParam, string search);
+        public abstract PagedList<AbstractCategory> Category_All(PageParam pageParam, string search,int IsVisibleAll);
         public abstract SuccessResult<AbstractCategory> Category_Upsert(AbstractCategory abstractCategory);
         public abstract SuccessResult<AbstractCategory> Category_ActInact(int Category_Id, int Updatedby);
         public abstract SuccessResult<AbstractCategory> Category_Delete(int Category_Id, int Deleteby);
