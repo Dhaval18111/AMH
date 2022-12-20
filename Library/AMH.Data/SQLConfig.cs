@@ -12,7 +12,13 @@ namespace AMH.Data
     internal sealed class SQLConfig
     {
 
-
+        #region Category
+        public const string Category_Upsert = "Category_Upsert";
+        public const string Category_ById = "Category_ById";
+        public const string Category_All = "Category_All";
+        public const string Category_ActInact = "Category_ActInact";
+        public const string Category_Delete = "Category_Delete";
+        #endregion
         #region AddressMaster
         public const string AddressMaster_Upsert = "AddressMaster_Upsert";
         public const string AddressMaster_All = "AddressMaster_All";

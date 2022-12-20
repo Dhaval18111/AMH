@@ -7,15 +7,25 @@ using AMH.Entities.Contract;
 
 namespace AMH.Entities.V1
 {
+
     public class AddressMaster : AbstractAddressMaster { }
     public class CityMaster : AbstractCityMaster { }
     public class Student : AbstractStudent { }
     public class Department : AbstractDepartment { }
     public class StateMaster : AbstractStateMaster { }
-    public class MasterAppointmentStatus : AbstractMasterAppointmentStatus { }
+    //public class MasterAppointmentStatus : AbstractMasterAppointmentStatus { }
     public class CountryMaster : AbstractCountryMaster { }
     public class Admin : AbstractAdmin { }
-    public class Appointment : AbstractAppointment { }
+    public class Cart : AbstractCart { }
+    public class Category : AbstractCategory { }
+    public class Feedback : AbstractFeedback { }
+    public class Gallery : AbstractGallery { }
+    public class OrderAMH : AbstractOrderAMH { }
+    public class Payment : AbstractPayment { }
+    public class Product : AbstractProduct { }
+    public class SubCategory : AbstractSubCategory { }
+    public class Users : AbstractUsers { }
+    //public class Appointment : AbstractAppointment { }
     public class Customer : AbstractCustomer { }
     public class Employees : AbstractEmployees { }
     public class MasterCity : AbstractMasterCity { }

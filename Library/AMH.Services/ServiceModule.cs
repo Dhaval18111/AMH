@@ -26,6 +26,7 @@ namespace AMH.Services
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterModule<DataModule>();
+            builder.RegisterType<V1.CategoryServices>().As<AbstractCategoryServices>().InstancePerDependency();
             builder.RegisterType<V1.AddressMasterServices>().As<AbstractAddressMasterServices>().InstancePerDependency();
             builder.RegisterType<V1.AppointmentServices>().As<AbstractAppointmentServices>().InstancePerDependency();
             builder.RegisterType<V1.MasterAppointmentStatusServices>().As<AbstractMasterAppointmentStatusServices>().InstancePerDependency();

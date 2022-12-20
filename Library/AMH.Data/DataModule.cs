@@ -27,6 +27,7 @@ namespace AMH.Data
         /// </remarks>
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<V1.CategoryDao>().As<AbstractCategoryDao>().InstancePerDependency();
             builder.RegisterType<V1.AddressMasterDao>().As<AbstractAddressMasterDao>().InstancePerDependency();
             builder.RegisterType<V1.AppointmentDao>().As<AbstractAppointmentDao>().InstancePerDependency();
             builder.RegisterType<V1.MasterAppointmentStatusDao>().As<AbstractMasterAppointmentStatusDao>().InstancePerDependency();

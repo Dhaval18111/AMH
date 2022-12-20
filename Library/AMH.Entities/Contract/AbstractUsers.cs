@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace AMH.Entities.Contract
 {
-    public abstract class AbstractAdmin
+    public abstract class AbstractUsers
     {
         public long Id { get; set; }
         public long Type { get; set; }
