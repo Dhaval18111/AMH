@@ -143,7 +143,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="title" id="defaultModalLabel">Category</h6>
+                <h6 class="title" id="defaultModalLabel">Add Category</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -154,37 +154,12 @@
                         <div class="col-12 mt-2">
                             <label>Category Name</label>
                             <input type="hidden" id="Category_Id" name="Category_Id" />
-                            <input type="text" id="Name" name="Name" class="form-control" placeholder="Please enter category name" />
+                            <input type="text" id="Name" name="Name" class="form-control" placeholder="Enter here..." />
                         </div>
                         <div class="col-12 mt-2">
-                            <label>Decription</label>
-                            <input type="text" id="Decription" name="Decription" class="form-control" placeholder="Please enter Decription" />
+                            <label>Description</label>
+                            <input type="text" id="Description" name="Description" class="form-control" placeholder="Enter here..." />
                         </div>
-
-                        @*<div class="col-12 mt-2">
-                                <label>Phone Number</label>
-                                <input type="number" id="PhoneNumber" name="PhoneNumber" class="form-control" placeholder="Please enter phone number" />
-                            </div>
-                            <div class="col-12 mt-2">
-                                <label>Email</label>
-                                <input type="email" id="Email" name="Email" class="form-control" placeholder="Please enter email" />
-                            </div>*@
-                        <!--<div class="col-12 mt-2">
-                            <label>Country</label>
-                        </div>
-                        <div class="col-12 mt-2">
-                            <label>State</label>
-                            <select id="StateId" name="StateId" class="form-control" onchange="SelectCity();">
-                            </select>-->
-                        @*@Html.Raw(Html.DropDownList("StateName", (IEnumerable<SelectListItem>)ViewBag.MasterState_All, new { @Id = "StateId", @class = "form-control", @onchange = "SelectState();" }))*@
-                        <!--</div>-->
-                        <!--<div class="col-12 mt-2">
-                            <label>City</label>
-                            <select id="CityId" name="CityId" class="form-control">
-                            </select>-->
-                        @* <input type="number" id="CityId" name="CityId" class="form-control" placeholder="Please enter City" />*@
-                        @*@Html.Raw(Html.DropDownList("CityName", (IEnumerable<SelectListItem>)ViewBag.MasterCity_All, new { @Id = "CityId", @class = "form-control",@onchange= "SelectCity();" }))*@
-                        <!--</div>-->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -200,54 +175,6 @@
     </div>
 </div>
 
-
-
-@*<div class="modal" id="UsersFillter" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h6 class="title" id="defaultModalLabel">Users Filters</h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                        <div class="col-12 mt-2">
-                            <label>Name</label>
-                            <input type="text" class="form-control" value="" name="admin_name" id="admin_name" placeholder="Enter Here...">
-                        </div>
-                        <div class="col-12 mt-2">
-                            <label>Mobile Number</label>
-                            <input type="number" class="form-control" value="" name="admin_mobilenumber" id="admin_mobilenumber" placeholder="Enter Here...">
-                        </div>
-                        <div class="col-12 mt-2">
-                            <label>Email</label>
-                            <input type="email" class="form-control" value="" name="admin_email" id="admin_email" placeholder="Enter Here...">
-                        </div>
-                        <div class="col-12 mt-2">
-                            <label for="AdminTypes">Users Type</label>
-                            @Html.Raw(Html.DropDownList("admin_typeid", (IEnumerable<SelectListItem>)ViewBag.GetUserTypeAll, new { @Id = "admin_typeid", @class = "form-control" }))
-                        </div>
-                        <div class="col-12 mt-2">
-                            <label>Is Active</label>
-                            <select class="form-control" id="admin_isactive" name="admin_isactive">
-                                <option value="2" selected>All</option>
-                                <option value="1">Active</option>
-                                <option value="0">In-Active</option>
-                            </select>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button id="btnSearch" type="button" class="btn btn-primary saveBtn" onclick="SearchReset(false)">Search</button>
-                    <button class="btn btn-primary loading" type="button" disabled style="display:none;float:right;">
-                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        Searching...
-                    </button>
-                    <button type="button" data-dismiss="modal" class="btn btn-secondary closeBtn">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>*@
 @section Scripts {
     <script>
 
@@ -257,17 +184,15 @@
             $("#ManageCategoryForm").validate({
                 rules: {
                     Name: "required",
-                    PhoneNumber: "required",
-                    Decription: "required",
-                    Email: "required"
+                    Description: "required"
                 },
                 messages: {
                     Name: {
                         required: "Please enter customer name",
                     },
 
-                    Decription: {
-                        required: "Please enter Decription",
+                    Description: {
+                        required: "Please enter Description",
                     },
 
                 },
@@ -332,6 +257,17 @@
                             }
                             , "orderable": false, "width": "3%"
                         },
+                        {
+                            "title": "Description", "data": "Description",
+                            "render": function (data, type, row) {
+                                let htmlData = "";
+
+                                htmlData = `<p class="mb-0">${row["Description"]}</p>`;
+
+                                return htmlData;
+                            }
+                            , "orderable": false, "width": "3%"
+                        },
 
                         {
                             "title": "Is Active ?", "data": "IsActive",
@@ -375,7 +311,7 @@
                             "title": "Action", "data": "Category_Id",
                             "render": function (data, type, row) {
                                 let htmlData = "";
-                                htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Edit Category" onclick="ViewCategory('${btoa(row["Category_Id"])}');"><i class="fa fa-edit"></i></button>`;
+                                htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Edit Category" onclick="ViewCategory('${(row["Category_Id"])}');"><i class="fa fa-edit"></i></button>`;
                                 htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Delete Category" onclick="DeleteCategory('${(row["Category_Id"])}');"><i class="fa fa-trash"></i></button>`;
                                 //htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Delete Customer" onclick="DeleteDocument('${btoa(row["Id"])}');"><i class="fa fa-trash"></i></button>`;
 
@@ -482,7 +418,7 @@
             return data;
         }
 
-        function InactiveMessage(Category_Id) {
+        function InActiveMessage(Category_Id) {
             swal({
                 title: "Are you sure ?",
                 text: "You will be in-activating the category !",
@@ -549,10 +485,14 @@
 
 
         function AddCategoryPopUp() {
-           // emptyFormValues();
+            $('#Category_Id').val(0);
+            $('#Name').val('');
+            $('#Description').val('');
+
             var $alertas = $('#addCategory');
             $alertas.validate().resetForm();
             $alertas.find('.error').removeClass('error');
+            $('#defaultModalLabel').text('Add Category');
             $('#addCategory').modal('show');
         }
 
@@ -564,7 +504,7 @@
             var userdata = {
                 Category_Id: $("#Category_Id").val(),
                 Name: $("#Name").val(),
-                Decription: $("#Decription").val()
+                Description: $("#Description").val()
             }
 
             $.ajax({
@@ -607,40 +547,39 @@
         //function emptyFormValues() {
         //    $("#Category_Id").val(0);
         //    $("#Name").val("");
-        //    $("#Decription").val("");
+        //    $("#Description").val("");
 
         //}
         function ViewCategory(Category_Id) {
-            $('#Category_Id').val(0);
-            $('#BikeName').val('');
-            $('#OwnerName').val('');
-
 
             var $alertas = $('#addCategory');
             $alertas.validate().resetForm();
             $alertas.find('.error').removeClass('error');
-            $('#addCategory').modal('show');
-            if (id != null && id != "") {
-                $.ajax({
-                    type: "POST",
-                    url: '@Url.Action(Actions.Category_ById, Controllers.Category)',
-                    data: { Category_Id: Category_Id },
-                    dataType: 'json',
-                    success: function (response) {
-                        if (response.Code == 200) {
-                            $('#Category_Id').val(response.Item.Category_Id);
-                            $('#Name').val(response.Item.Name);
-                            $('#Decription').val(response.Item.Decription);
-                        }
-                        else {
-                            swal("Error !", response.Message, "error");
-                        }
-                    },
-                    error: function (error) {
-                        swal("Error !", "Something Went Wrong", "error");
+            defaultModalLabel
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action(Actions.Category_ById, Controllers.Category)',
+                data: { Category_Id: Category_Id },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.Code == 200) {
+                        $('#Category_Id').val(response.Item.Category_Id);
+                        $('#Name').val(response.Item.Name);
+                        $('#Description').val(response.Item.Description);
+
+                        $('#defaultModalLabel').text('Edit Category');
+                        $('#addCategory').modal('show');
+
                     }
-                });
-            }
+                    else {
+                        swal("Error !", response.Message, "error");
+                    }
+                },
+                error: function (error) {
+                    swal("Error !", "Something Went Wrong", "error");
+                }
+            });
+
         }
 
 

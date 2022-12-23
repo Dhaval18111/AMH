@@ -39,7 +39,7 @@ namespace AMHAdmin.Controllers
                 pageParam.Limit = requestModel.Length;
 
                 string search = Convert.ToString(requestModel.Search.Value);
-                var response = abstractCategoryServices.Category_All(pageParam, search,0);
+                var response = abstractCategoryServices.Category_All(pageParam, search,2);
 
                 totalRecord = (int)response.TotalRecords;
                 filteredRecord = (int)response.TotalRecords;
@@ -64,9 +64,8 @@ namespace AMHAdmin.Controllers
         }
     
         [HttpPost]
-        public JsonResult Category_ById(string SMId = "MA==")
+        public JsonResult Category_ById(int Category_Id = 0)
         {
-            int Category_Id = Convert.ToInt32(ConvertTo.Base64Decode(SMId));
             SuccessResult<AbstractCategory> successResult = abstractCategoryServices.Category_ById(Category_Id);
             return Json(successResult, JsonRequestBehavior.AllowGet);
         }
@@ -92,7 +91,7 @@ namespace AMHAdmin.Controllers
         [HttpPost]
         public JsonResult Category_Delete(int Category_Id)
         {
-            int DeletedBy = 0;//ProjectSession.AdminId;
+            int DeletedBy = 1;//ProjectSession.AdminId;
 
             var result = abstractCategoryServices.Category_Delete(Category_Id, DeletedBy);
 
