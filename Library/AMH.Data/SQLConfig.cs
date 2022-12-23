@@ -87,7 +87,7 @@ namespace AMH.Data
         public const string AddressMaster_ActInAct = "AddressMaster_ActInAct";
         public const string AddressMaster_Delete = "AddressMaster_Delete";
         public const string AddressMaster_ByUserId = "AddressMaster_ByUserId";
-        public const string Users_ById = "Users_ById  ";
+       // public const string Users_ById = "Users_ById  ";
         #endregion
 
         #region Customer

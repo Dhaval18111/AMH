@@ -67,7 +67,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contract\AbstractAppointment.cs" />
     <Compile Include="Contract\AbstractCart.cs" />
     <Compile Include="Contract\AbstractCategory.cs" />
     <Compile Include="Contract\AbstractFeedback.cs" />
