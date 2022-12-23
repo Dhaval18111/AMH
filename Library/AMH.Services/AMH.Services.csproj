@@ -267,6 +267,8 @@
     <Compile Include="V1\AdminServices.cs" />
     <Compile Include="V1\AddressMasterServices.cs" />
     <Compile Include="V1\SubCategoryServices.cs" />
+    <Compile Include="V1\UsersServices.cs" />
+    <Compile Include="V1\WishlistServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

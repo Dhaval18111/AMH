@@ -15,6 +15,7 @@ namespace AMH.Entities.Contract
         public int Subcat_Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public string Categoryname { get; set; }
         public int Category_Id { get; set; }
         public bool IsActive { get; set; }
         public DateTime Createddate { get; set; }

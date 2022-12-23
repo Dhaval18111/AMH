@@ -15,6 +15,13 @@
         public const string Category_Upsert = "Category_Upsert";
         public const string Category_All = "Category_All";
         public const string Category_ActInact = "Category_ActInact";
+        public const string SubCategory_Delete = "SubCategory_Delete";
+        public const string SubCategory_ById = "SubCategory_ById";
+        public const string SubCategory_Upsert = "SubCategory_Upsert";
+        public const string SubCategory_All = "SubCategory_All";
+        public const string SubCategory_ActInact = "SubCategory_ActInact";
+
+
         public const string GetAdminDetails = "GetAdminDetails";
 
         public const string Users_All = "Users_All";

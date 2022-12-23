@@ -96,6 +96,8 @@
     <Compile Include="Contract\AbstractCustomerDao.cs" />
     <Compile Include="Contract\AbstractAddressMasterDao.cs" />
     <Compile Include="Contract\AbstractAdminDao.cs" />
+    <Compile Include="Contract\AbstractUsersDao.cs" />
+    <Compile Include="Contract\AbstractWishlistDao.cs" />
     <Compile Include="DataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLConfig.cs" />
@@ -111,6 +113,8 @@
     <Compile Include="V1\CustomerDao.cs" />
     <Compile Include="V1\AdminDao.cs" />
     <Compile Include="V1\AddressMasterDao.cs" />
+    <Compile Include="V1\UsersDao.cs" />
+    <Compile Include="V1\WishlistDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

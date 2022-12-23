@@ -6,7 +6,7 @@
 @Html.AntiForgeryToken()
 
 @{
-    ViewBag.Title = "Category";
+    ViewBag.Title = "SubCategory";
 }
 
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
@@ -126,35 +126,39 @@
 <div class="content container-fluid">
     <div class="row">
         <div class="col-8">
-            <h5>Category</h5>
+            <h5>SubCategory</h5>
         </div>
     </div>
     <div class="row">
         <div class="col-xxl-12 col-lg-12 col-md-12 col-12 mb-3">
             @Html.AntiForgeryToken()
-            <div class="portlet-body table-responsive" id="divCategoryTable">
-                <table class="table table-striped table-bUsersed table-hover" id="CategoryTable"></table>
+            <div class="portlet-body table-responsive" id="divSubCategoryTable">
+                <table class="table table-striped table-bUsersed table-hover" id="SubCategoryTable"></table>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal" id="addCategory" tabindex="-1" role="dialog">
+<div class="modal" id="addSubCategory" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="title" id="defaultModalLabel">Add Category</h6>
+                <h6 class="title" id="defaultModalLabel">Add SubCategory</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="ManageCategoryForm" method="post" enctype="multipart/form-data">
+            <form id="ManageSubCategoryForm" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12 mt-2">
-                            <label>Category Name</label>
-                            <input type="hidden" id="Category_Id" name="Category_Id" />
+                            <label>SubCategory Name</label>
+                            <input type="hidden" id="SubCategory_Id" name="SubCategory_Id" />
                             <input type="text" id="Name" name="Name" class="form-control" placeholder="Enter here..." />
+                        </div>
+                        <div class="col-12 mt-2">
+                            <label>Category</label>
+                            @Html.Raw(Html.DropDownList("CategoryId", (IEnumerable<SelectListItem>)ViewBag.CategoryDrp, new { @Id = "CategoryId", @class = "form-control" }))
                         </div>
                         <div class="col-12 mt-2">
                             <label>Description</label>
@@ -179,15 +183,20 @@
     <script>
 
         $(document).ready(() => {
+            $("#CategoryId").append('<option value="0" disabled selected hidden>Select Category</option>');
             CategoriesDataTable.init();
 
-            $("#ManageCategoryForm").validate({
+            $("#ManageSubCategoryForm").validate({
                 rules: {
                     Name: "required",
+                    CategoryId: "required",
                     Description: "required"
                 },
                 messages: {
                     Name: {
+                        required: "SubCategory name is required",
+                    },
+                    CategoryId: {
                         required: "Category name is required",
                     },
 
@@ -206,7 +215,7 @@
                     }
                 },
                 submitHandler: function (form) {
-                    AddCategory();
+                    AddSubCategory();
                 }
             });
 
@@ -216,7 +225,7 @@
 
         var CategoriesDataTable = function () {
             let initTable1 = function () {
-                let table = $('#CategoryTable');
+                let table = $('#SubCategoryTable');
 
                 let oTable = table.dataTable({
                     "stateSave": true,
@@ -241,13 +250,13 @@
                     "serverSide": true,
                     "ajax": {
                         async: true,
-                        url: '@Url.Action(Actions.Category_All, Controllers.Category)',
+                        url: '@Url.Action(Actions.SubCategory_All, Controllers.SubCategory)',
                         type: "post",
                         data: SearchCriteria(),
                     },
                     "columns": [
                         {
-                            "title": "Category Name", "data": "Name",
+                            "title": "SubCategory Name", "data": "Name",
                             "render": function (data, type, row) {
                                 let htmlData = "";
 
@@ -268,6 +277,17 @@
                             }
                             , "orderable": false, "width": "3%"
                         },
+                         {
+                             "title": "Category Name", "data": "Categoryname",
+                            "render": function (data, type, row) {
+                                let htmlData = "";
+
+                                htmlData = `<p class="mb-0">${row["Categoryname"]}</p>`;
+
+                                return htmlData;
+                            }
+                            , "orderable": false, "width": "3%"
+                        },
 
                         {
                             "title": "Is Active ?", "data": "IsActive",
@@ -275,44 +295,21 @@
                                 let htmlData = "";
 
                                 if (row["IsActive"] == 1) {
-                                    htmlData = `<button title="Active" onclick="InActiveMessage('${row["Category_Id"]}');" class="badge badge-primary">Active</button>`;
+                                    htmlData = `<button title="Active" onclick="InActiveMessage('${row["Subcat_Id"]}');" class="badge badge-primary">Active</button>`;
                                 } else {
-                                    htmlData = `<button title="In-Active" onclick="ActiveMessage('${row["Category_Id"]}');" class="badge badge-danger">In-Active</button>`;
+                                    htmlData = `<button title="In-Active" onclick="ActiveMessage('${row["Subcat_Id"]}');" class="badge badge-danger">In-Active</button>`;
                                 }
 
                                 return htmlData;
                             }
                             , "orderable": false, "width": "3%"
                         },
-                        @*{
-                            "title": "Is Active ?", "data": "IsActive",
-                            "render": function (data, type, row) {
-                                let htmlData = "";
-                                if (row["Id"] == '@ProjectSession.AdminId') {
-                                    if (row["IsActive"] == 1) {
-                                        //InactiveMessage
-                                        htmlData = `<button onclick="InactiveMessage('${row["Id"]}');" disabled class="badge badge-primary">Active</button>`;
-                                    } else {
-                                        htmlData = `<button onclick="ActiveMessage('${row["Id"]}');" disabled class="badge badge-danger">In-Active</button>`;
-                                    }
-                                } else {
-                                    if (row["IsActive"] == 1) {
-                                        //InactiveMessage
-                                        htmlData = `<button onclick="InactiveMessage('${row["Id"]}');" class="badge badge-primary">Active</button>`;
-                                    } else {
-                                        htmlData = `<button onclick="ActiveMessage('${row["Id"]}');" class="badge badge-danger">In-Active</button>`;
-                                    }
-                                }
-                                return htmlData;
-                            }
-                            , "orderable": false, "width": "3%"
-                        },*@
                         {
-                            "title": "Action", "data": "Category_Id",
+                            "title": "Action", "data": "Subcat_Id",
                             "render": function (data, type, row) {
                                 let htmlData = "";
-                                htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Edit Category" onclick="ViewCategory('${(row["Category_Id"])}');"><i class="fa fa-edit"></i></button>`;
-                                htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Delete Category" onclick="DeleteCategory('${(row["Category_Id"])}');"><i class="fa fa-trash"></i></button>`;
+                                htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Edit SubCategory" onclick="ViewSubCategory('${(row["Subcat_Id"])}');"><i class="fa fa-edit"></i></button>`;
+                                htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Delete SubCategory" onclick="DeleteSubCategory('${(row["Subcat_Id"])}');"><i class="fa fa-trash"></i></button>`;
                                 //htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Delete Customer" onclick="DeleteDocument('${btoa(row["Id"])}');"><i class="fa fa-trash"></i></button>`;
 
                                 return htmlData;
@@ -323,10 +320,10 @@
                     // setup buttons extentension: http://datatables.net/extensions/buttons/
                         "buttons": [
                             {
-                                text: 'Add Category',
+                                text: 'Add SubCategory',
                                 className: 'btn btn-primary mb-3 mt-1 mr-2',
                                 action: function (e, dt, node, config) {
-                                    AddCategoryPopUp();
+                                    AddSubCategoryPopUp();
                                 }
                             }
                             //{
@@ -366,9 +363,9 @@
             return {
                 //main function to initiate the module
                 init: function () {
-                    if ($.fn.DataTable.isDataTable("#CategoryTable")) {
-                        $('#CategoryTable').dataTable().fnDestroy();
-                        $('#divCategoryTable').html('<table class="table table-striped" width="100%" id="CategoryTable"></table>');
+                    if ($.fn.DataTable.isDataTable("#SubCategoryTable")) {
+                        $('#SubCategoryTable').dataTable().fnDestroy();
+                        $('#divSubCategoryTable').html('<table class="table table-striped" width="100%" id="SubCategoryTable"></table>');
                     }
                     initTable1();
                 }
@@ -418,43 +415,43 @@
             return data;
         }
 
-        function InActiveMessage(Category_Id) {
+        function InActiveMessage(SubCategory_Id) {
             swal({
                 title: "Are you sure ?",
-                text: "You will be in-activating the category !",
+                text: "You will be in-activating the SubCategory !",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willupdate) => {
                 if (willupdate) {
-                    UpdateStatus(Category_Id);
+                    UpdateStatus(SubCategory_Id);
                 }
             });
         }
 
         //ActiveMessage swal function
-        function ActiveMessage(Category_Id) {
+        function ActiveMessage(SubCategory_Id) {
             swal({
                 title: "Are you sure ?",
-                text: "You will be activating the category !",
+                text: "You will be activating the SubCategory !",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             })
             .then((willupdate) => {
                 if (willupdate) {
-                    UpdateStatus(Category_Id);
+                    UpdateStatus(SubCategory_Id);
                 }
             });
         }
 
         //status ActiveInActive change function
-        function UpdateStatus(Category_Id) {
+        function UpdateStatus(SubCategory_Id) {
             $.ajax({
                 type: "POST",
-                url: '@Url.Action(Actions.Category_ActInact, Controllers.Category)',
-                data: { Category_Id: Category_Id },
+                url: '@Url.Action(Actions.SubCategory_ActInact, Controllers.SubCategory)',
+                data: { Subcat_Id: SubCategory_Id },
                 dataType: 'json',
                 success: function (response) {
                     CategoriesDataTable.init();
@@ -484,38 +481,40 @@
         }
 
 
-        function AddCategoryPopUp() {
-            $('#Category_Id').val(0);
+        function AddSubCategoryPopUp() {
+            $('#SubCategory_Id').val(0);
+            $('#CategoryId').val(0);
             $('#Name').val('');
             $('#Description').val('');
 
-            var $alertas = $('#addCategory');
+            var $alertas = $('#addSubCategory');
             $alertas.validate().resetForm();
             $alertas.find('.error').removeClass('error');
-            $('#defaultModalLabel').text('Add Category');
-            $('#addCategory').modal('show');
+            $('#defaultModalLabel').text('Add SubCategory');
+            $('#addSubCategory').modal('show');
         }
 
-        function AddCategory() {
+        function AddSubCategory() {
 
             //$(".saveBtn").hide();
             //$(".loading").show();
             //$(".closeBtn").hide();
             var userdata = {
-                Category_Id: $("#Category_Id").val(),
+                Subcat_Id: $("#SubCategory_Id").val(),
                 Name: $("#Name").val(),
-                Description: $("#Description").val()
+                Description: $("#Description").val(),
+                Category_Id: $("#CategoryId").val()
             }
 
             $.ajax({
 
                 type: "POST",
-                url: '@Url.Action(Actions.Category_Upsert, Controllers.Category)',
+                url: '@Url.Action(Actions.SubCategory_Upsert, Controllers.SubCategory)',
                 data: userdata,
                 dataType: 'json',
                 success: function (response) {
                     if (response.Code == 200) {
-                        $('#addCategory').modal('hide');
+                        $('#addSubCategory').modal('hide');
                         swal({
                             title: "Great !",
                             text: response.Message,
@@ -531,7 +530,7 @@
                     $(".saveBtn").show();
                     $(".loading").hide();
                     $(".closeBtn").show();
-                    $('#addCategory').modal('hide');
+                    $('#addSubCategory').modal('hide');
 
                 },
                 error: function (error) {
@@ -545,30 +544,31 @@
 
 
         //function emptyFormValues() {
-        //    $("#Category_Id").val(0);
+        //    $("#SubCategory_Id").val(0);
         //    $("#Name").val("");
         //    $("#Description").val("");
 
         //}
-        function ViewCategory(Category_Id) {
+        function ViewSubCategory(SubCategory_Id) {
 
-            var $alertas = $('#addCategory');
+            var $alertas = $('#addSubCategory');
             $alertas.validate().resetForm();
             $alertas.find('.error').removeClass('error');
             defaultModalLabel
             $.ajax({
                 type: "POST",
-                url: '@Url.Action(Actions.Category_ById, Controllers.Category)',
-                data: { Category_Id: Category_Id },
+                url: '@Url.Action(Actions.SubCategory_ById, Controllers.SubCategory)',
+                data: { Subcat_Id: SubCategory_Id },
                 dataType: 'json',
                 success: function (response) {
                     if (response.Code == 200) {
-                        $('#Category_Id').val(response.Item.Category_Id);
+                        $('#SubCategory_Id').val(response.Item.Subcat_Id);
                         $('#Name').val(response.Item.Name);
                         $('#Description').val(response.Item.Description);
+                        $('#CategoryId').val(response.Item.Category_Id);
 
-                        $('#defaultModalLabel').text('Edit Category');
-                        $('#addCategory').modal('show');
+                        $('#defaultModalLabel').text('Edit SubCategory');
+                        $('#addSubCategory').modal('show');
 
                     }
                     else {
@@ -583,7 +583,7 @@
         }
 
 
-        function DeleteCategory(Category_Id) {
+        function DeleteSubCategory(SubCategory_Id) {
             swal({
                 title: "Delete !",
                 text: "Are You Sure You want to Delete this Data ?",
@@ -595,8 +595,8 @@
                 if (willdelete) {
                     $.ajax({
                         type: "POST",
-                        url: '@Url.Action(Actions.Category_Delete, Controllers.Category)',
-                        data: { Category_Id: Category_Id },
+                        url: '@Url.Action(Actions.SubCategory_Delete, Controllers.SubCategory)',
+                        data: { Subcat_Id: SubCategory_Id },
                         dataType: 'json',
                         success: function (response) {
                             swal("Success !", response.Message, "success");

@@ -15,18 +15,40 @@ namespace AMHAdmin.Controllers
     public class SubCategoryController : Controller
     {
         public readonly AbstractSubCategoryServices abstractSubCategoryServices;
+        public readonly AbstractCategoryServices abstractCategoryServices;
 
-        public SubCategoryController(AbstractSubCategoryServices abstractSubCategoryServices)
+        public SubCategoryController(AbstractSubCategoryServices abstractSubCategoryServices,
+            AbstractCategoryServices abstractCategoryServices)
         {
             this.abstractSubCategoryServices = abstractSubCategoryServices;
+            this.abstractCategoryServices = abstractCategoryServices;
         }
 
         [ActionName(Actions.Index)]
         public ActionResult Index()
         {
+            ViewBag.CategoryDrp = CategoryDrp();
             return View();
         }
 
+        [HttpPost]
+        public IList<SelectListItem> CategoryDrp()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            PageParam pageParam = new PageParam();
+            pageParam.Offset = 0;
+            pageParam.Limit = 0;
+
+            var result = abstractCategoryServices.Category_All(pageParam, "", 2);
+
+            foreach (var master in result.Values)
+            {
+                items.Add(new SelectListItem() { Text = master.Name.ToString(), Value = Convert.ToString(master.Category_Id) });
+            }
+
+            return items;
+        }
 
         public JsonResult SubCategory_All([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)
         {
