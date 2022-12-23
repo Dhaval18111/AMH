@@ -233,6 +233,7 @@
   <ItemGroup>
     <Compile Include="AbstractBaseService.cs" />
     <Compile Include="Contract\AbstractAppointmentServices.cs" />
+    <Compile Include="Contract\AbstractCartServices.cs" />
     <Compile Include="Contract\AbstractStudentServices .cs" />
     <Compile Include="Contract\AbstractEmployeesServices.cs" />
     <Compile Include="Contract\AbstractCustomerServices.cs" />
@@ -241,6 +242,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceModule.cs" />
     <Compile Include="V1\AppointmentServices .cs" />
+    <Compile Include="V1\CartServices.cs" />
+    <Compile Include="V1\CategoryServices.cs" />
     <Compile Include="V1\StudentServices.cs" />
     <Compile Include="V1\EmployeesServices.cs" />
     <Compile Include="V1\CustomerServices.cs" />

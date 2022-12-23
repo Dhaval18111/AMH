@@ -65,11 +65,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contract\AbstractAppointment.cs" />
+    <Compile Include="Contract\AbstractCart.cs" />
+    <Compile Include="Contract\AbstractCategory.cs" />
+    <Compile Include="Contract\AbstractFeedback.cs" />
+    <Compile Include="Contract\AbstractGallery.cs" />
+    <Compile Include="Contract\AbstractOrderAMH.cs" />
+    <Compile Include="Contract\AbstractPayment.cs" />
+    <Compile Include="Contract\AbstractProduct.cs" />
     <Compile Include="Contract\AbstractStudent.cs" />
     <Compile Include="Contract\AbstractEmployees.cs" />
     <Compile Include="Contract\AbstractCustomer.cs" />
     <Compile Include="Contract\AbstractAdmin.cs" />
     <Compile Include="Contract\AbstractAddressMaster.cs" />
+    <Compile Include="Contract\AbstractSubCategory.cs" />
+    <Compile Include="Contract\AbstractUsers.cs" />
+    <Compile Include="Contract\AbstractWishlist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="V1\Common.cs" />
   </ItemGroup>
