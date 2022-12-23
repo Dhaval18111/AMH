@@ -35,18 +35,18 @@ namespace AMHAdmin.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ActionName(Actions.ChangePassword)]
-        //public ActionResult ChangePassword(long Id, string OldPassword, string NewPassword, string ConfirmPassword)
-        //{
-        //    SuccessResult<AbstractAdmin> result = abstractAdminServices.Admin_ChangePassword(Id, OldPassword, NewPassword, ConfirmPassword);
+        [HttpPost]
+        [ActionName(Actions.ChangePassword)]
+        public ActionResult ChangePassword(long Id, string OldPassword, string NewPassword, string ConfirmPassword)
+        {
+            SuccessResult<AbstractAdmin> result = abstractAdminServices.Admin_ChangePassword(Id, OldPassword, NewPassword, ConfirmPassword);
 
-        //    var welcome = "Greetings From Ginny Buddy.";
-        //    EmailHelper.SendEmail(welcome, result.Item.Email, result.Item.Name, "Email : " + result.Item.Email + " , Password : " + result.Item.Password + " Information Updated", result.Item.Password);
+            var welcome = "Greetings From Ginny Buddy.";
+            EmailHelper.SendEmail(welcome, result.Item.Email, result.Item.Name, "Email : " + result.Item.Email + " , Password : " + result.Item.Password + " Information Updated", result.Item.Password);
 
-        //    return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(result, JsonRequestBehavior.AllowGet);
 
-        //}
+        }
 
         #endregion
     }
