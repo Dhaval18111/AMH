@@ -38,6 +38,7 @@ namespace AMH.Entities.Contract
         [NotMapped]
         public string DeletedDateStr => DeletedDate != null ? DeletedDate.ToString("dd-MMM-yyyy hh:mm tt") : "-";
     }
+}
 
   
 

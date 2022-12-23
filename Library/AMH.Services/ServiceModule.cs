@@ -26,8 +26,8 @@ namespace AMH.Services
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterModule<DataModule>();
-            builder.RegisterType<V1.WishlistServices>().As<AbstractWishlistServices>().InstancePerDependency();
-            builder.RegisterType<V1.UsersServices>().As<AbstractUsersServices>().InstancePerDependency();
+            //builder.RegisterType<V1.WishlistServices>().As<AbstractWishlistServices>().InstancePerDependency();
+            //builder.RegisterType<V1.UsersServices>().As<AbstractUsersServices>().InstancePerDependency();
             builder.RegisterType<V1.ProductServices>().As<AbstractProductServices>().InstancePerDependency();
             builder.RegisterType<V1.OrderAMHServices>().As<AbstractOrderAMHServices>().InstancePerDependency();
             builder.RegisterType<V1.GalleryServices>().As<AbstractGalleryServices>().InstancePerDependency();
@@ -35,24 +35,8 @@ namespace AMH.Services
             builder.RegisterType<V1.CartServices>().As<AbstractCartServices>().InstancePerDependency();
             builder.RegisterType<V1.CategoryServices>().As<AbstractCategoryServices>().InstancePerDependency();
             builder.RegisterType<V1.SubCategoryServices>().As<AbstractSubCategoryServices>().InstancePerDependency();
-            builder.RegisterType<V1.AddressMasterServices>().As<AbstractAddressMasterServices>().InstancePerDependency();
-            builder.RegisterType<V1.AppointmentServices>().As<AbstractAppointmentServices>().InstancePerDependency();
-            builder.RegisterType<V1.MasterAppointmentStatusServices>().As<AbstractMasterAppointmentStatusServices>().InstancePerDependency();
-            builder.RegisterType<V1.CityMasterServices>().As<AbstractCityMasterServices>().InstancePerDependency();
-            builder.RegisterType<V1.DepartmentServices>().As<AbstractDepartmentServices>().InstancePerDependency();
-            builder.RegisterType<V1.StateMasterServices>().As<AbstractStateMasterServices>().InstancePerDependency();
-            builder.RegisterType<V1.CountryMasterServices>().As<AbstractCountryMasterServices>().InstancePerDependency();
             builder.RegisterType<V1.AdminServices>().As<AbstractAdminServices>().InstancePerDependency();
-            builder.RegisterType<V1.CustomerServices>().As<AbstractCustomerServices>().InstancePerDependency();
-            builder.RegisterType<V1.StudentServices>().As<AbstractStudentServices>().InstancePerDependency();
-            builder.RegisterType<V1.EmployeesServices>().As<AbstractEmployeesServices>().InstancePerDependency();
-            builder.RegisterType<V1.MasterCountryServices>().As<AbstractMasterCountryServices>().InstancePerDependency();
-            builder.RegisterType<V1.MasterEmCountryServices>().As<AbstractMasterEmCountryServices>().InstancePerDependency();
-            builder.RegisterType<V1.MasterCityServices>().As<AbstractMasterCityServices>().InstancePerDependency();
-            builder.RegisterType<V1.MasterEmCityServices>().As<AbstractMasterEmCityServices>().InstancePerDependency();
-            builder.RegisterType<V1.MasterStateServices>().As<AbstractMasterStateServices>().InstancePerDependency();
-            builder.RegisterType<V1.MasterEmStateServices>().As<AbstractMasterEmStateServices>().InstancePerDependency();
-
+         
             base.Load(builder);
         }
     }

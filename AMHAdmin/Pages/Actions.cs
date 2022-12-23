@@ -10,11 +10,11 @@
         public const string ChangePassword = "ChangePassword";
         public const string Details = "Details";
 
-        public const string DeliveryExecutiveLatLong_Map = "DeliveryExecutiveLatLong_Map";
-        public const string Requests_Attended = "Requests_Attended";
-        public const string UpdateStatusAdminUsers = "UpdateStatusAdminUsers";
-        public const string Admin_All = "Admin_All";
-        public const string Admin_Upsert = "Admin_Upsert";
+        public const string Category_Delete = "Category_Delete";
+        public const string Category_ById = "Category_ById";
+        public const string Category_Upsert = "Category_Upsert";
+        public const string Category_All = "Category_All";
+        public const string Category_ActInact = "Category_ActInact";
         public const string GetAdminDetails = "GetAdminDetails";
 
         public const string Users_All = "Users_All";
