@@ -27,8 +27,8 @@ namespace AMH.Data
         /// </remarks>
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<V1.WishlistDao>().As<AbstractWishlistDao>().InstancePerDependency();
-            builder.RegisterType<V1.UsersDao>().As<AbstractUsersDao>().InstancePerDependency();
+           // builder.RegisterType<V1.WishlistDao>().As<AbstractWishlistDao>().InstancePerDependency();
+           // builder.RegisterType<V1.UsersDao>().As<AbstractUsersDao>().InstancePerDependency();
             builder.RegisterType<V1.ProductDao>().As<AbstractProductDao>().InstancePerDependency();
             builder.RegisterType<V1.OrderAMHDao>().As<AbstractOrderAMHDao>().InstancePerDependency();
             builder.RegisterType<V1.GalleryDao>().As<AbstractGalleryDao>().InstancePerDependency();
@@ -37,8 +37,8 @@ namespace AMH.Data
             builder.RegisterType<V1.CategoryDao>().As<AbstractCategoryDao>().InstancePerDependency();
             builder.RegisterType<V1.SubCategoryDao>().As<AbstractSubCategoryDao>().InstancePerDependency();
             builder.RegisterType<V1.AddressMasterDao>().As<AbstractAddressMasterDao>().InstancePerDependency();
-            builder.RegisterType<V1.AppointmentDao>().As<AbstractAppointmentDao>().InstancePerDependency();
-            builder.RegisterType<V1.MasterAppointmentStatusDao>().As<AbstractMasterAppointmentStatusDao>().InstancePerDependency();
+           // builder.RegisterType<V1.AppointmentDao>().As<AbstractAppointmentDao>().InstancePerDependency();
+           // builder.RegisterType<V1.MasterAppointmentStatusDao>().As<AbstractMasterAppointmentStatusDao>().InstancePerDependency();
             builder.RegisterType<V1.CityMasterDao>().As<AbstractCityMasterDao>().InstancePerDependency();
             builder.RegisterType<V1.StateMasterDao>().As<AbstractStateMasterDao>().InstancePerDependency();
             builder.RegisterType<V1.CountryMasterDao>().As<AbstractCountryMasterDao>().InstancePerDependency();

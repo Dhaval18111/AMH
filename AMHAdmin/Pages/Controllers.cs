@@ -14,5 +14,7 @@ namespace AMHAdmin.Pages
         public const string ManageUser = "ManageUser";
         public const string Appointment = "Appointment";
         public const string Student = "Student";
+        public const string Category = "Category";
+
     }
 }

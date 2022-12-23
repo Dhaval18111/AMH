@@ -13,7 +13,7 @@ namespace AMHAdmin
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Customer", action = "Index", id = UrlParameter.Optional },
+                defaults: new { controller = "Category", action = "Index", id = UrlParameter.Optional },
                 namespaces: new[] { "AMHAdmin.Controllers" }
             );
         }
