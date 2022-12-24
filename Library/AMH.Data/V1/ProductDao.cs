@@ -26,7 +26,7 @@ namespace AMH.Data.V1
             param.Add("@Product_Id", AbstractProduct.Product_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             param.Add("@Name", AbstractProduct.Name, dbType: DbType.String, direction: ParameterDirection.Input);
             param.Add("@Description", AbstractProduct.Description, dbType: DbType.String, direction: ParameterDirection.Input);
-            param.Add("@Price", AbstractProduct.Price, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            param.Add("@Price", AbstractProduct.Price, dbType: DbType.Decimal, direction: ParameterDirection.Input);
             param.Add("@Quantity", AbstractProduct.Quantity, dbType: DbType.Int32, direction: ParameterDirection.Input);
             param.Add("@Image", AbstractProduct.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             param.Add("@Subcat_Id", AbstractProduct.Subcat_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);

@@ -555,7 +555,6 @@
             var $alertas = $('#addCategory');
             $alertas.validate().resetForm();
             $alertas.find('.error').removeClass('error');
-            defaultModalLabel
             $.ajax({
                 type: "POST",
                 url: '@Url.Action(Actions.Category_ById, Controllers.Category)',

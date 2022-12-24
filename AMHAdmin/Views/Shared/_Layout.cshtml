@@ -118,44 +118,23 @@
                             </a>
                         </li>*@
                     <li class="navbar-vertical-item">
-                        <a href="@Url.Action("Index","Customer")" id="customer" class="navbar-vertical-link">
+                        <a href="@Url.Action("Index","Category")" id="Category" class="navbar-vertical-link">
                             <div class="navbar-vertical-icon"><i class="fa fa-users"></i></div>
-                            Customers
+                            Manage 
                         </a>
                     </li>
-                    @*<li class="navbar-vertical-item">
-                            <a href="@Url.Action("Index","Student")" id="student" class="navbar-vertical-link">
-                                <div class="navbar-vertical-icon"><i class="fa fa-users"></i></div>
-                                Student
-                            </a>
-                        </li>*@
                     <li class="navbar-vertical-item">
-                        <a href="@Url.Action("Index","Employees")" id="employee" class="navbar-vertical-link">
+                        <a href="@Url.Action("Index","SubCategory")" id="SubCategory" class="navbar-vertical-link">
+                            <div class="navbar-vertical-icon"><i class="fa fa-users"></i></div>
+                            Manage SubCategory
+                        </a>
+                    </li>
+                    <li class="navbar-vertical-item">
+                        <a href="@Url.Action("Index","Product")" id="Product" class="navbar-vertical-link">
                             <div class="navbar-vertical-icon"><i class="fa fa-heartbeat"></i></div>
-                            Employee
+                            Manage Product
                         </a>
                     </li>
-
-                    <li class="navbar-vertical-item">
-                        <a href="@Url.Action("Index","Appointment")" id="apo" class="navbar-vertical-link">
-                            <div class="navbar-vertical-icon"><i class="fa fa-dove"></i></div>
-                            Appointment
-                        </a>
-                    </li>
-                    <li class="navbar-vertical-item">
-                        <a href="@Url.Action("Calendar","Employees")" id="calendar" class="navbar-vertical-link">
-                            <div class="navbar-vertical-icon"><i class="fa fa-dragon"></i></div>
-                            Calendar
-                        </a>
-                    </li>
-
-                    <li class="navbar-vertical-item">
-                        <a href="@Url.Action("Index","ManageUser")" id="mnManageUser" class="navbar-vertical-link">
-                            <div class="navbar-vertical-icon"><i class="fa fa-clock"></i></div>
-                            CLock
-                        </a>
-                    </li>
-
                 </ul>
             </div>
         </div>
@@ -193,26 +172,15 @@
             });
             switch ('@curController') {
 
-                case '@Controllers.Customer':
-                    setActiveLink($('#customer').attr('id'));
+                case '@Controllers.Category':
+                    setActiveLink($('#Category').attr('id'));
                     break;
-                @*case '@Controllers.Student':
-                    setActiveLink($('#student').attr('id'));
-                    break;*@
-                case '@Controllers.Employees':
-                    setActiveLink($('#employee').attr('id'));
+                case '@Controllers.SubCategory':
+                    setActiveLink($('#SubCategory').attr('id'));
                     break;
-                case '@Controllers.Employees':
-                    setActiveLink($('#calendar').attr('id'));
+                case '@Controllers.Product':
+                    setActiveLink($('#Product').attr('id'));
                     break;
-                case '@Controllers.Appointment':
-                    setActiveLink($('#apo').attr('id'));
-                    break;
-
-                case '@Controllers.ManageUser':
-                    setActiveLink($('#mnManageUser').attr('id'));
-                    break;
-
             }
         }
 

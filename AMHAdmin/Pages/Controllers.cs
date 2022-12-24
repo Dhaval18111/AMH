@@ -16,6 +16,7 @@ namespace AMHAdmin.Pages
         public const string Student = "Student";
         public const string Category = "Category";
         public const string SubCategory = "SubCategory";
+        public const string Product = "Product";
 
     }
 }

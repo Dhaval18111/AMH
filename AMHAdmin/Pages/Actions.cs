@@ -20,6 +20,11 @@
         public const string SubCategory_Upsert = "SubCategory_Upsert";
         public const string SubCategory_All = "SubCategory_All";
         public const string SubCategory_ActInact = "SubCategory_ActInact";
+        public const string Product_Delete = "Product_Delete";
+        public const string Product_ById = "Product_ById";
+        public const string Product_Upsert = "Product_Upsert";
+        public const string Product_All = "Product_All";
+        public const string Product_ActInact = "Product_ActInact";
 
 
         public const string GetAdminDetails = "GetAdminDetails";
