@@ -16,8 +16,37 @@ namespace AMH.Data.V1
 {
     public class AdminDao : AbstractAdminDao
     {
+        public override bool Admin_SignOut()
+        {
+            bool result = false;
+            var param = new DynamicParameters();
 
-       
+            using (SqlConnection con = new SqlConnection(Configurations.ConnectionString))
+            {
+                var task = con.Query<bool>(SQLConfig.Admin_SignOut, param, commandType: CommandType.StoredProcedure);
+                result = task.SingleOrDefault<bool>();
+            }
+            return result;
+
+        }
+        public override SuccessResult<AbstractAdmin> Admin_SignIn(string Email, string Password)
+        {
+            SuccessResult<AbstractAdmin> Admin = null;
+            var param = new DynamicParameters();
+
+            param.Add("@Email", Email, dbType: DbType.String, direction: ParameterDirection.Input);
+            param.Add("@Password", Password, dbType: DbType.String, direction: ParameterDirection.Input);
+
+            using (SqlConnection con = new SqlConnection(Configurations.ConnectionString))
+            {
+                var task = con.QueryMultiple(SQLConfig.Admin_SignIn, param, commandType: CommandType.StoredProcedure);
+                Admin = task.Read<SuccessResult<AbstractAdmin>>().SingleOrDefault();
+                Admin.Item = task.Read<Admin>().SingleOrDefault();
+            }
+
+            return Admin;
+        }
+
         public override SuccessResult<AbstractAdmin> Admin_Upsert(AbstractAdmin AbstractAdmin)
         {
             SuccessResult<AbstractAdmin> Admin = null;

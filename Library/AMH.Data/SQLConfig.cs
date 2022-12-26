@@ -87,9 +87,8 @@ namespace AMH.Data
         public const string AddressMaster_ActInAct = "AddressMaster_ActInAct";
         public const string AddressMaster_Delete = "AddressMaster_Delete";
         public const string AddressMaster_ByUserId = "AddressMaster_ByUserId";
-       // public const string Users_ById = "Users_ById  ";
+        // public const string Users_ById = "Users_ById  ";
         #endregion
-
         #region Customer
         public const string Customer_Upsert = "Customer_Upsert";
         public const string Customer_All = "Customer_All";
@@ -119,7 +118,9 @@ namespace AMH.Data
         public const string Employees_ActInAct = "Employees_ActInAct";
         public const string Employees_Delete = "Employees_Delete";
         #endregion
-
+        #region AdminType
+        public const string AdminType_All = "AdminType_All";
+        #endregion
         #region Appointment
         public const string Appointment_Upsert = "Appointment_Upsert";
         public const string Appointment_All = "Appointment_All";
@@ -141,19 +142,14 @@ namespace AMH.Data
         #region CountryMaster
         public const string CountryMaster_All = "CountryMaster_All";
         #endregion
-
         #region Admin
-        //public const string Admin_SignOut = "Admin_SignOut";
-        //public const string Admin_SignIn = "Admin_SignIn";
+        public const string Admin_SignOut = "Admin_SignOut";
+        public const string Admin_SignIn = "Admin_SignIn";
         //public const string Admin_ChangePassword = "Admin_ChangePassword";
         public const string Admin_Upsert = "Admin_Upsert";
         public const string Admin_ById = "Admin_ById";
         public const string Admin_All = "Admin_All";
         public const string Admin_ActInact = "Admin_ActInact";
-        #endregion
-
-        #region AdminType
-        public const string AdminType_All = "AdminType_All";
         #endregion
 
 

@@ -111,16 +111,16 @@
             </div>
             <div class="navbar-vertical-content" data-simplebar>
                 <ul class="navbar-vertical-nav">
-                    @*<li class="navbar-vertical-item">
-                            <a href="@Url.Action("Index","Home")" id="mnHome" class="navbar-vertical-link">
+                    <li class="navbar-vertical-item">
+                            <a href="@Url.Action("Index","Home")" id="Home" class="navbar-vertical-link">
                                 <div class="navbar-vertical-icon"><i class="tio-dashboard-vs-outlined"></i></div>
                                 Dashboard
                             </a>
-                        </li>*@
+                        </li>
                     <li class="navbar-vertical-item">
                         <a href="@Url.Action("Index","Category")" id="Category" class="navbar-vertical-link">
                             <div class="navbar-vertical-icon"><i class="fa fa-users"></i></div>
-                            Manage 
+                            Manage Category
                         </a>
                     </li>
                     <li class="navbar-vertical-item">
@@ -172,6 +172,9 @@
             });
             switch ('@curController') {
 
+                case '@Controllers.Home':
+                    setActiveLink($('#Home').attr('id'));
+                    break;
                 case '@Controllers.Category':
                     setActiveLink($('#Category').attr('id'));
                     break;

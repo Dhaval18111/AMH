@@ -19,14 +19,14 @@ namespace AMH.Services.V1
             this.abstractAdminDao = abstractAdminDao;
         }
 
-        //public override bool Admin_SignOut(long Id)
-        //{
-        //    return this.abstractAdminDao.Admin_SignOut(Id);
-        //}
-        //public override SuccessResult<AbstractAdmin> Admin_SignIn(string Email, string Password)
-        //{
-        //    return this.abstractAdminDao.Admin_SignIn(Email, Password);
-        //}
+        public override bool Admin_SignOut()
+        {
+            return this.abstractAdminDao.Admin_SignOut();
+        }
+        public override SuccessResult<AbstractAdmin> Admin_SignIn(string Email, string Password)
+        {
+            return this.abstractAdminDao.Admin_SignIn(Email, Password);
+        }
         //public override SuccessResult<AbstractAdmin> Admin_ChangePassword(long Id, string OldPassword, string NewPassword, string ConfirmPassword)
         //{
         //    return this.abstractAdminDao.Admin_ChangePassword(Id, OldPassword, NewPassword, ConfirmPassword);
