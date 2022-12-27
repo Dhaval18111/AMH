@@ -29,6 +29,17 @@ namespace AMH.Entities.Contract
         public string UpdateddateStr => Updateddate != null ? Updateddate.ToString("dd-MMM-yyyy hh:mm tt") : "-";
         [NotMapped]
         public string DeleteddateStr => Deleteddate != null ? Deleteddate.ToString("dd-MMM-yyyy hh:mm tt") : "-";
+
+        public int Feedback { get; set; }
+        public int PendingPayment { get; set; }
+        public int ReceivedPayment { get; set; }
+        public int PlasedOrder { get; set; }
+        public int ActiveOrder { get; set; }
+        public int NewProduct { get; set; }
+        public int NewUsers { get; set; }
+        public int ActiveUsers { get; set; }
+        public int TotalUsers { get; set; }
+
     }
 }
 

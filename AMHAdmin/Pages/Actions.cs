@@ -60,6 +60,7 @@
         public const string Appointment_ById = "Appointment_ById";
         public const string Appointment_Upsert = "Appointment_Upsert";
         public const string Appointment_Delete = "Appointment_Delete";
+        public const string Home_All = "Home_All";
 
 
 

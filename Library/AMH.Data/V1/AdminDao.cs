@@ -140,5 +140,21 @@ namespace AMH.Data.V1
 
             return Admin;
         }
+        public override SuccessResult<AbstractAdmin> Home_All()
+        {
+            SuccessResult<AbstractAdmin> Admin = null;
+            var param = new DynamicParameters();
+
+            //param.Add("@Admin_Id", Admin_Id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+
+            using (SqlConnection con = new SqlConnection(Configurations.ConnectionString))
+            {
+                var task = con.QueryMultiple(SQLConfig.Home_All, param, commandType: CommandType.StoredProcedure);
+                Admin = task.Read<SuccessResult<AbstractAdmin>>().SingleOrDefault();
+                Admin.Item = task.Read<Admin>().SingleOrDefault();
+            }
+
+            return Admin;
+        }
     }
 }

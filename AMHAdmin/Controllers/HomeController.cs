@@ -14,21 +14,28 @@ namespace AMHAdmin.Controllers
 {
     public class HomeController : BaseController
     {
-        //private readonly AbstractRequestsServices abstractRequestsServices = null;
-        //private readonly AbstractDeliveryExecutiveLatLongServices abstractDeliveryExecutiveLatLongServices = null;
+        public readonly AbstractAdminServices abstractAdminServices;
 
-        //public HomeController(AbstractRequestsServices abstractRequestsServices,
-        //    AbstractDeliveryExecutiveLatLongServices abstractDeliveryExecutiveLatLongServices)
-        //{
-        //    this.abstractRequestsServices = abstractRequestsServices;
-        //    this.abstractDeliveryExecutiveLatLongServices = abstractDeliveryExecutiveLatLongServices;
-        //}
+
+        public HomeController(
+           AbstractAdminServices abstractAdminServices)
+
+        {
+            this.abstractAdminServices = abstractAdminServices;
+
+        }
 
         public ActionResult Index()
         {
             return View();
         }
-
+        [HttpPost]
+        public JsonResult Home_All()
+        {
+            //int Id = ProjectSession.AdminId;
+            var result = abstractAdminServices.Home_All();
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
         //[HttpPost]
         //public JsonResult Requests_ByStatusCount()
         //{

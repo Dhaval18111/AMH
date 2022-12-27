@@ -53,5 +53,9 @@ namespace AMH.Services.V1
         {
             return this.abstractAdminDao.Admin_Delete(Admin_Id, Deletedby);
         }
+        public override SuccessResult<AbstractAdmin>Home_All( )
+        {
+            return this.abstractAdminDao.Home_All();
+        }
     }
 }

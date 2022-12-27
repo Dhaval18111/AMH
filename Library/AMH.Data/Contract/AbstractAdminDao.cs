@@ -20,5 +20,6 @@ namespace AMH.Data.Contract
         public abstract SuccessResult<AbstractAdmin> Admin_ActInact(int Admin_Id, int Updatedby);
         public abstract PagedList<AbstractAdmin> Admin_All(PageParam pageParam, string Search,int IsVisibleAll);
         public abstract SuccessResult<AbstractAdmin> Admin_Delete(int Admin_Id, int Deletedby);
+        public abstract SuccessResult<AbstractAdmin> Home_All();
     }
 }

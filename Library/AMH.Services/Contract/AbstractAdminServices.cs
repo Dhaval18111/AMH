@@ -18,6 +18,7 @@ namespace AMH.Services.Contract
         public abstract SuccessResult<AbstractAdmin> Admin_Upsert(AbstractAdmin abstractAdmin);
         public abstract SuccessResult<AbstractAdmin> Admin_ActInact(int Admin_Id, int Updatedby);
         public abstract SuccessResult<AbstractAdmin> Admin_Delete(int Admin_Id, int Deletedby);
+        public abstract SuccessResult<AbstractAdmin> Home_All();
 
       
 

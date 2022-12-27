@@ -150,6 +150,7 @@ namespace AMH.Data
         public const string Admin_ById = "Admin_ById";
         public const string Admin_All = "Admin_All";
         public const string Admin_ActInact = "Admin_ActInact";
+        public const string Home_All = "Home_All";
         #endregion
 
 
