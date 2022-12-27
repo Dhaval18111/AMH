@@ -82,7 +82,7 @@ namespace AMH.Data.V1
         }
 
 
-        public override PagedList<AbstractUsers> Users_All(PageParam pageParam, string search,int IsVisibleAll)
+        public override PagedList<AbstractUsers> Users_All(PageParam pageParam, string search,int IsVisibleAll,string FromDate,string ToDate)
         {
             PagedList<AbstractUsers> Users = new PagedList<AbstractUsers>();
 
@@ -91,6 +91,8 @@ namespace AMH.Data.V1
             param.Add("@Limit", pageParam.Limit, dbType: DbType.Int32, direction: ParameterDirection.Input);
             param.Add("@Search", search, dbType: DbType.String, direction: ParameterDirection.Input);
             param.Add("@IsVisibleAll", IsVisibleAll, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            param.Add("@FromDate", FromDate, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            param.Add("@ToDate", ToDate, dbType: DbType.Int32, direction: ParameterDirection.Input);
           
 
             using (SqlConnection con = new SqlConnection(Configurations.ConnectionString))

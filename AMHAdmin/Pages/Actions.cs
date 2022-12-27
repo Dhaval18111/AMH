@@ -9,6 +9,7 @@
         public const string Delete = "Delete";
         public const string ChangePassword = "ChangePassword";
         public const string Details = "Details";
+        public const string UsersListing = "UsersListing";
 
         public const string Category_Delete = "Category_Delete";
         public const string Category_ById = "Category_ById";

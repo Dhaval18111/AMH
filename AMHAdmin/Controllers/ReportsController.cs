@@ -12,28 +12,25 @@ using AMH.Entities.V1;
 
 namespace AMHAdmin.Controllers
 {
-    public class StudentController : Controller
+    public class ReportsController : Controller
     {
-        //public readonly AbstractStudentServices abstractStudentServices;
-        //public readonly AbstractDepartmentServices abstractDepartmentServices;
-        
-        //public StudentController(
-        //    AbstractStudentServices abstractStudentServices,
-        //    AbstractDepartmentServices abstractDepartmentServices)
-            
-        //{
-        //    this.abstractStudentServices = abstractStudentServices;
-        //    this.abstractDepartmentServices = abstractDepartmentServices;
-        //}
+        //public readonly AbstractUsersServices abstractUsersServices;
 
-        //[ActionName(Actions.Index)]
-        //public ActionResult Index()
+
+        //public ReportsController(
+        //   AbstractUsersServices abstractUsersServices)
+
         //{
-        //    ViewBag.Department_All = Department_All();
-        //    //ViewBag.MasterState_All = MasterState_All();
-        //    //ViewBag.Department_All = Department_All();
-        //    return View();
+        //    this.abstractUsersServices = abstractUsersServices;
+
         //}
+        [ActionName(Actions.UsersListing)]
+        public ActionResult UsersListing()
+        {
+            //ViewBag.SubCategoryDrp = SubCategoryDrp();
+            return View();
+        }
+        
         //// User Type = Admin Type 
         //[HttpPost]
         //public IList<SelectListItem> Department_All()
@@ -75,7 +72,7 @@ namespace AMHAdmin.Controllers
         ////    return items;
         ////}
 
-       
+
         //public JsonResult Student_All([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel,int DepartmentId = 0)
         //{
         //    {
@@ -135,7 +132,7 @@ namespace AMHAdmin.Controllers
         //    //}
         //    return Json(result, JsonRequestBehavior.AllowGet);
         //}
-       
+
 
         //[HttpPost]
         //public JsonResult Student_ById(string SMId = "MA==")
@@ -145,7 +142,7 @@ namespace AMHAdmin.Controllers
         //    return Json(successResult, JsonRequestBehavior.AllowGet);
         //}
 
-        
+
         //[HttpPost]
         //public JsonResult Student_Delete(int StudentId)
         //{

@@ -17,7 +17,7 @@ namespace AMH.Data.Contract
         public abstract SuccessResult<AbstractUsers> Users_ById(int Users_Id);
         public abstract SuccessResult<AbstractUsers> Users_ActInact(int Users_Id, int Updatedby);
         public abstract SuccessResult<AbstractUsers> Users_Delete(int Users_Id, int Deletedby);
-        public abstract PagedList<AbstractUsers> Users_All(PageParam pageParam, string Search,int IsVisibleAll);
+        public abstract PagedList<AbstractUsers> Users_All(PageParam pageParam, string Search,int IsVisibleAll,string FromDate,string ToDate);
 
     }
 }
