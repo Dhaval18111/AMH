@@ -13,118 +13,6 @@
 
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-<style>
-    .checkbox2 {
-        width: 25px;
-        height: 25px;
-    }
-
-    thead {
-        background: #0069D9;
-        color: white;
-    }
-
-    .row {
-        margin: 0 !important;
-    }
-
-    .activ {
-        background: linear-gradient(to right, #0069D9, #0069D9);
-        color: white;
-    }
-
-    .has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .form-control-feedback, .has-error .help-block, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {
-        color: #e73d4a
-    }
-
-    .has-error .form-control {
-        bUsers-color: #e73d4a;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075)
-    }
-
-        .has-error .form-control:focus {
-            bUsers-color: #d71b29;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #f2989f;
-            box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #f2989f
-        }
-
-    .has-error .input-group-addon {
-        color: #e73d4a;
-        bUsers-color: #e73d4a;
-        background-color: #fbe1e3
-    }
-
-    .autocomplete-items {
-        position: absolute;
-        bUsers: 1px solid #d4d4d4;
-        bUsers-bottom: none;
-        z-index: 99;
-        top: 40px;
-        left: 0;
-        right: 0;
-        box-shadow: 0 39px 70px 0 rgba(0, 0, 0, 0.1);
-        background-color: #ffffff;
-    }
-
-        .autocomplete-items > div {
-            padding: 10px;
-            cursor: pointer;
-            bUsers-bottom: 1px solid #ccc;
-        }
-
-            .autocomplete-items > div:hover {
-                background: #fbfbfb;
-            }
-
-    .addDelete {
-        color: black !important;
-        background: #e9e9e9 !important;
-    }
-
-    .hideDelete {
-        display: none !important;
-    }
-
-    .text-c-dark {
-        color: #000;
-    }
-
-    .device-active .active .card {
-        background: #157aec;
-        cursor: pointer;
-    }
-
-    .device-active .active .text-c-dark {
-        color: #fff !important;
-    }
-
-        .device-active .active .text-c-dark .icon {
-            background-color: #0069D9;
-            bUsers: none;
-        }
-
-    .icon-box {
-        background: #eff1f4;
-    }
-
-        .icon-box:hover {
-            background: #0e67cc !important;
-        }
-
-    .btn-primary {
-        color: #fff !important;
-        background-color: #0596F8 !important;
-        border-color: #0596F8 !important;
-        box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%) !important;
-    }
-
-    div.dt-buttons {
-        float: right !important;
-    }
-</style>
-
-
 <div class="content container-fluid">
     <div class="row">
         <div class="col-8 mb-4">
@@ -183,7 +71,7 @@
        // var compIds = 0;
 
         $(document).ready(() => {
-            
+
             UsersDataTable.init();
             $("#UsersTable_filter").hide();
             });
@@ -214,7 +102,7 @@
                     "serverSide": true,
                     "ajax": {
                         async: true,
-                        url: '@Url.Action("Users_All", Controllers.Users)',
+                        url: '@Url.Action(Actions.Users_All, Controllers.Users)',
                         type: "post",
                         data: SearchCriteria(),
                     },
@@ -278,7 +166,7 @@
                         { extend: 'excel', className: 'btn green btn-outline mb-3 mt-1', exportOptions: { columns: [0, 1, 2] } },
                         { extend: 'pdf', className: 'btn green btn-outline mb-3 mt-1', exportOptions: { columns: [0, 1, 2] } },
                         { extend: 'print', className: 'btn green btn-outline mb-3 mt-1', exportOptions: { columns: [0, 1, 2] } },
-                        
+
                         {
                             text: 'Filters',
                             className: 'btn btn-success mb-3 mt-1',

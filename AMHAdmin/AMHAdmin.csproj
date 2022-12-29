@@ -216,15 +216,15 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\ChangePasswordController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
-    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ManageUserController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5529,7 +5529,7 @@
     <Content Include="Views\Authentication\Signin.cshtml" />
     <Content Include="Views\ChangePassword\ChangePassword.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Reports\UsersListing.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\Calendar.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
@@ -5537,6 +5537,7 @@
     <Content Include="Views\SubCategory\Index.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Reports\UsersListing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

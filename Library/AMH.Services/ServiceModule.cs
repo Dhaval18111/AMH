@@ -27,7 +27,7 @@ namespace AMH.Services
         {
             builder.RegisterModule<DataModule>();
             //builder.RegisterType<V1.WishlistServices>().As<AbstractWishlistServices>().InstancePerDependency();
-            //builder.RegisterType<V1.UsersServices>().As<AbstractUsersServices>().InstancePerDependency();
+            builder.RegisterType<V1.UsersServices>().As<AbstractUsersServices>().InstancePerDependency();
             builder.RegisterType<V1.ProductServices>().As<AbstractProductServices>().InstancePerDependency();
             builder.RegisterType<V1.OrderAMHServices>().As<AbstractOrderAMHServices>().InstancePerDependency();
             builder.RegisterType<V1.GalleryServices>().As<AbstractGalleryServices>().InstancePerDependency();
