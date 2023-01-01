@@ -10,6 +10,9 @@
         public const string ChangePassword = "ChangePassword";
         public const string Details = "Details";
         public const string UsersListing = "UsersListing";
+        public const string FeedbackListing = "FeedbackListing";
+        public const string PaymentListing = "PaymentListing";
+        public const string OrderListing = "OrderListing";
 
         public const string Category_Delete = "Category_Delete";
         public const string Category_ById = "Category_ById";

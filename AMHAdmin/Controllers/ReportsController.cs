@@ -20,6 +20,24 @@ namespace AMHAdmin.Controllers
         {
             return View();
         }
+
+        [ActionName(Actions.FeedbackListing)]
+        public ActionResult FeedbackListing()
+        {
+            return View();
+        }
+
+        [ActionName(Actions.OrderListing)]
+        public ActionResult OrderListing()
+        {
+            return View();
+        }
+        
+        [ActionName(Actions.PaymentListing)]
+        public ActionResult PaymentListing()
+        {
+            return View();
+        }
         
 
     }

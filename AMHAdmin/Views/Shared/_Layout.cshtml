@@ -148,21 +148,27 @@
                             <div class="panel-body">
                                 <ul class="nav navbar-nav pl-3 line-height-18">
                                     <li class="navbar-vertical-item">
-                                       <a href="~/Reports/UsersListing" id="mnUsersListing" class="navbar-vertical-link">
+                                       <a href="~/Reports/UsersListing" id="UsersListing" class="navbar-vertical-link">
                                             <div class="navbar-vertical-icon"><i class="fas fa-clone"></i></div>
                                             Users Listing
                                         </a>
                                     </li>
                                     <li class="navbar-vertical-item">
-                                        <a href="~/Reports/ConsultsListing" id="mnConsultsListing" class="navbar-vertical-link">
+                                        <a href="~/Reports/OrderListing" id="OrderListing" class="navbar-vertical-link">
                                             <div class="navbar-vertical-icon"><i class="fas fa-clone"></i></div>
                                             Order Listing
                                         </a>
                                     </li>
                                     <li class="navbar-vertical-item">
-                                        <a href="~/Reports/IssuesListing" id="mnIssuesListing" class="navbar-vertical-link">
+                                        <a href="~/Reports/PaymentListing" id="PaymentListing" class="navbar-vertical-link">
                                             <div class="navbar-vertical-icon"><i class="fas fa-bug"></i></div>
                                             Payment Listing
+                                        </a>
+                                    </li>  
+                                    <li class="navbar-vertical-item">
+                                        <a href="~/Reports/FeedbackListing" id="FeedbackListing" class="navbar-vertical-link">
+                                            <div class="navbar-vertical-icon"><i class="fas fa-bug"></i></div>
+                                            Feedback Listing
                                         </a>
                                     </li>
                                 </ul>
@@ -222,7 +228,25 @@
                     setActiveLink($('#Product').attr('id'));
                     break;
                 case '@Controllers.Reports'+ " " + '@Actions.UsersListing':
-                    setActiveLink($('#mnUsersListing').attr('id'));
+                    setActiveLink($('#UsersListing').attr('id'));
+                    $('#dropdown-lvl1').addClass('show');
+                    $('#MainMenu').attr("aria-expanded", "true");
+                    $('#MainMenu').removeClass('collapsed');
+                    break;
+                case '@Controllers.Reports' + " " + '@Actions.OrderListing':
+                    setActiveLink($('#OrderListing').attr('id'));
+                    $('#dropdown-lvl1').addClass('show');
+                    $('#MainMenu').attr("aria-expanded", "true");
+                    $('#MainMenu').removeClass('collapsed');
+                    break;
+                case '@Controllers.Reports' + " " + '@Actions.PaymentListing':
+                    setActiveLink($('#PaymentListing').attr('id'));
+                    $('#dropdown-lvl1').addClass('show');
+                    $('#MainMenu').attr("aria-expanded", "true");
+                    $('#MainMenu').removeClass('collapsed');
+                    break;
+                case '@Controllers.Reports' + " " + '@Actions.FeedbackListing':
+                    setActiveLink($('#FeedbackListing').attr('id'));
                     $('#dropdown-lvl1').addClass('show');
                     $('#MainMenu').attr("aria-expanded", "true");
                     $('#MainMenu').removeClass('collapsed');
