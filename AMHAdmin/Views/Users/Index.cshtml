@@ -122,6 +122,7 @@
         float: right !important;
     }
 </style>
+
 <div class="content container-fluid">
     <div class="row">
         <div class="col-8 mb-4">
@@ -227,6 +228,46 @@
                             , "orderable": false, "width": "3%"
                         },
                         {
+                            "title": "Email", "data": "Email",
+                            "render": function (data, type, row) {
+                                let htmlData = "";
+                                htmlData = `<p class="mb-0">${row["Email"]}</p>`;
+
+                                return htmlData;
+                            }
+                            , "orderable": false, "width": "3%"
+                        },
+                        {
+                            "title": "Contact No", "data": "ContactNo",
+                            "render": function (data, type, row) {
+                                let htmlData = "";
+                                htmlData = `<p class="mb-0">${row["ContactNo"]}</p>`;
+
+                                return htmlData;
+                            }
+                            , "orderable": false, "width": "3%"
+                        },
+                        {
+                            "title": "Birth Date", "data": "BirthDateStr",
+                            "render": function (data, type, row) {
+                                let htmlData = "";
+                                htmlData = `<p class="mb-0">${row["BirthDateStr"]}</p>`;
+
+                                return htmlData;
+                            }
+                            , "orderable": false, "width": "3%"
+                        },
+                        {
+                            "title": "Address", "data": "Address",
+                            "render": function (data, type, row) {
+                                let htmlData = "";
+                                htmlData = `<p class="mb-0">${row["Address"]}</p>`;
+
+                                return htmlData;
+                            }
+                            , "orderable": false, "width": "3%"
+                        },
+                        {
                             "title": "Gender", "data": "Gender",
                             "render": function (data, type, row) {
                                 let htmlData = "";
@@ -237,41 +278,37 @@
                             }
                             , "orderable": false, "width": "3%"
                         },
-                        //{
-                        //    "title": "Date", "data": "ConsultDateStr",
-                        //    "render": function (data, type, row) {
-                        //        let htmlData = "";
-                        //        htmlData += `<p class="mb-0">${row["ConsultDateStr"] == "" || row["ConsultDateStr"] == null ? '-' : row["ConsultDateStr"]}</p >`;
-                        //        return htmlData;
-                        //    }
-                        //    , "orderable": false, "width": "3%"
-                        //},
-                        //{
-                        //    "title": "Reason", "data": "LookUpReasonTypeName",
-                        //    "render": function (data, type, row) {
+                        {
+                            "title": "Is Active ?", "data": "IsActive",
+                            "render": function (data, type, row) {
+                                let htmlData = "";
 
-                        //        let htmlData = "";
-                        //        htmlData += `<p class="mb-0">${row["LookUpReasonTypeName"] == "" || row["LookUpReasonTypeName"] == null ? '-' : row["LookUpReasonTypeName"]}</p >`;
-                        //        return htmlData;
-                        //    }
-                        //    , "orderable": false, "width": "3%"
-                        //},
-                        //{
-                        //    "title": "Purpose", "data": "LookUpPurposeTypeName",
-                        //    "render": function (data, type, row) {
+                                if (row["IsActive"] == 1) {
+                                    htmlData = `<button title="Active" onclick="InActiveMessage('${row["Users_Id"]}');" class="badge badge-primary">Active</button>`;
+                                } else {
+                                    htmlData = `<button title="In-Active" onclick="ActiveMessage('${row["Users_Id"]}');" class="badge badge-danger">In-Active</button>`;
+                                }
 
-                        //        let htmlData = "";
-                        //        htmlData += `<p class="mb-0">${row["LookUpPurposeTypeName"] == "" || row["LookUpPurposeTypeName"] == null ? '-' : row["LookUpPurposeTypeName"]}</p >`;
-                        //        return htmlData;
-                        //    }
-                        //    , "orderable": false, "width": "3%"
-                        //},
+                                return htmlData;
+                            }
+                            , "orderable": false, "width": "3%"
+                        },
+                        {
+                            "title": "Action", "data": "Users_Id",
+                            "render": function (data, type, row) {
+                                let htmlData = "";
+                                htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Delete Product" onclick="DeleteProduct('${(row["Users_Id"])}');"><i class="fa fa-trash"></i></button>`;
+                                //htmlData += `<button class="btn btn-sm btn-outline-secondary mr-2" title="Delete Customer" onclick="DeleteDocument('${btoa(row["Id"])}');"><i class="fa fa-trash"></i></button>`;
+
+                                return htmlData;
+                            }
+                            , "orderable": false, "width": "3%"
+                        },
 
                     ],
                     // setup buttons extentension: http://datatables.net/extensions/buttons/
 
                     "buttons": [
-                        //{ extend: 'csv', className: 'btn green btn-outline mb-3 mt-1', exportOptions: { columns: [0, 1, 2, 3] } },
                         { extend: 'excel', className: 'btn green btn-outline mb-3 mt-1', exportOptions: { columns: [0, 1, 2] } },
                         { extend: 'pdf', className: 'btn green btn-outline mb-3 mt-1', exportOptions: { columns: [0, 1, 2] } },
                         { extend: 'print', className: 'btn green btn-outline mb-3 mt-1', exportOptions: { columns: [0, 1, 2] } },
@@ -363,7 +400,95 @@
         //    $('#addPlayersConsults').modal('hide');
 
         //}
+        function DeleteProduct(Users_Id) {
+            swal({
+                title: "Delete !",
+                text: "Are You Sure You want to Delete this Data ?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willdelete) => {
+                if (willdelete) {
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action(Actions.Users_Delete, Controllers.Users)',
+                        data: { Users_Id: Users_Id },
+                        dataType: 'json',
+                        success: function (response) {
+                            swal("Success !", response.Message, "success");
+                            UsersDataTable.init();
+                        },
+                        error: function (error) {
+                            console.log('error', error);
+                        }
+                    })
+                }
+            });
+        }
+        function InActiveMessage(Users_Id) {
+            swal({
+                title: "Are you sure ?",
+                text: "You will be in-activating the User !",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willupdate) => {
+                    if (willupdate) {
+                        UpdateStatus(Users_Id);
+                    }
+                });
+        }
 
+        function ActiveMessage(Users_Id) {
+            swal({
+                title: "Are you sure ?",
+                text: "You will be activating the User !",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willupdate) => {
+                    if (willupdate) {
+                        UpdateStatus(Users_Id);
+                    }
+                });
+        }
+
+        //status ActiveInActive change function
+        function UpdateStatus(Users_Id) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action(Actions.Users_ActInact, Controllers.Users)',
+                data: { Users_Id: Users_Id },
+                dataType: 'json',
+                success: function (response) {
+                    UsersDataTable.init();
+                    if (response.Code == 200) {
+                        swal({
+                            title: "Success",
+                            text: response.Message,
+                            icon: "success",
+                            timer: 2000
+                        })
+                    } else {
+                        swal({
+                            title: "Warning",
+                            text: response.Message,
+                            icon: "warning"
+                        })
+                    }
+                },
+                error: function (error) {
+                    swal({
+                        title: "Warning",
+                        text: response.Message,
+                        icon: "warning"
+                    })
+                }
+            });
+        }
         function addRequestVerificationToken(data) {
             data.__RequestVerificationToken = $('input[name=__RequestVerificationToken]').val();
             return data;

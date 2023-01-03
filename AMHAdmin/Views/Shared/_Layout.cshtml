@@ -134,6 +134,12 @@
                             <div class="navbar-vertical-icon"><i class="fa fa-heartbeat"></i></div>
                             Manage Product
                         </a>
+                    <li class="navbar-vertical-item">
+                        <a href="@Url.Action("Index","Users")" id="Users" class="navbar-vertical-link">
+                            <div class="navbar-vertical-icon"><i class="fa fa-heartbeat"></i></div>
+                            Manage Users
+                        </a>
+                    </li>
                     </li>
                     <li class="panel panel-default navbar-vertical-item" id="dropdown">
                         <a href="#dropdown-lvl1" id="MainMenu" data-toggle="collapse" class="navbar-vertical-link collapsed">
@@ -148,7 +154,7 @@
                             <div class="panel-body">
                                 <ul class="nav navbar-nav pl-3 line-height-18">
                                     <li class="navbar-vertical-item">
-                                       <a href="~/Reports/UsersListing" id="UsersListing" class="navbar-vertical-link">
+                                        <a href="~/Reports/UsersListing" id="UsersListing" class="navbar-vertical-link">
                                             <div class="navbar-vertical-icon"><i class="fas fa-clone"></i></div>
                                             Users Listing
                                         </a>
@@ -164,7 +170,7 @@
                                             <div class="navbar-vertical-icon"><i class="fas fa-bug"></i></div>
                                             Payment Listing
                                         </a>
-                                    </li>  
+                                    </li>
                                     <li class="navbar-vertical-item">
                                         <a href="~/Reports/FeedbackListing" id="FeedbackListing" class="navbar-vertical-link">
                                             <div class="navbar-vertical-icon"><i class="fas fa-bug"></i></div>
@@ -226,6 +232,9 @@
                     break;
                 case '@Controllers.Product'+ " " + '@Actions.Index':
                     setActiveLink($('#Product').attr('id'));
+                    break;
+                case '@Controllers.Users'+ " " + '@Actions.Index':
+                    setActiveLink($('#Users').attr('id'));
                     break;
                 case '@Controllers.Reports'+ " " + '@Actions.UsersListing':
                     setActiveLink($('#UsersListing').attr('id'));

@@ -15,7 +15,7 @@ namespace AMH.Services.Contract
         public abstract PagedList<AbstractUsers> Users_All(PageParam pageParam, string search, int IsVisibleAll, string FromDate,string ToDate);
         public abstract SuccessResult<AbstractUsers> Users_Upsert(AbstractUsers abstractUsers);
         public abstract SuccessResult<AbstractUsers> Users_ActInact(int Users_Id, int Updatedby);
-        public abstract SuccessResult<AbstractUsers> Users_Delete(int Users_Id, int Deleteby);
+        public abstract SuccessResult<AbstractUsers> Users_Delete(int Users_Id, int Deletedby);
 
 
     }

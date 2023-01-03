@@ -51,9 +51,35 @@ namespace AMHAdmin.Controllers
                 return Json(new DataTablesResponse(requestModel.Draw, response.Values, filteredRecord, totalRecord), JsonRequestBehavior.AllowGet);
             }
         }
-        
-        
+        [HttpPost]
+        public JsonResult Users_Delete(int Users_Id)
+        {
+            int DeletedBy = 1;//ProjectSession.AdminId;
 
+            var result = abstractUsersServices.Users_Delete(Users_Id, DeletedBy);
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+
+        [HttpPost]
+        public JsonResult Users_ActInact(int Users_Id)
+        {
+            SuccessResult<AbstractUsers> admin = new SuccessResult<AbstractUsers>();
+
+            try
+            {
+                int Updatedby = 0;// ProjectSession.AdminId;
+                admin = abstractUsersServices.Users_ActInact(Users_Id, Updatedby);
+            }
+            catch (Exception ex)
+            {
+                admin.Code = 400;
+                admin.Message = ex.Message;
+            }
+            admin.Item = null;
+            return Json(admin, JsonRequestBehavior.AllowGet);
+        }
 
 
         //public JsonResult Users_All([ModelBinder(typeof(DataTablesBinder))] IDataTablesRequest requestModel)

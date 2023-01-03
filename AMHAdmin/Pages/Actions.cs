@@ -35,6 +35,9 @@
 
         public const string Users_All = "Users_All";
         public const string Users_ActInAct = "Users_ActInAct";
+        public const string Users_Delete = "Users_Delete";
+        public const string Users_ActInact = "Users_ActInact";
+
         public const string AddressMaster_ByUserId = "AddressMaster_ByUserId";
         public const string UserDevices_ByUserId = "UserDevices_ByUserId";
         public const string Requests_AssignDeliveryExecutive = "Requests_AssignDeliveryExecutive";
