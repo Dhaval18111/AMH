@@ -11,36 +11,36 @@ using AMH.Services.Contract;
 
 namespace AMH.Services.V1
 {
-    //public class WishlistServices : AbstractWishlistServices
-    //{
-        //private AbstractWishlistDao abstractWishlistDao;
+    public class WishlistServices : AbstractWishlistServices
+    {
+        private AbstractWishlistDao abstractWishlistDao;
 
-        //public WishlistServices(AbstractWishlistDao abstractWishlistDao)
-        //{
-        //    this.abstractWishlistDao = abstractWishlistDao;
-        //}
+        public WishlistServices(AbstractWishlistDao abstractWishlistDao)
+        {
+            this.abstractWishlistDao = abstractWishlistDao;
+        }
 
-     
-        //public override SuccessResult<AbstractWishlist> Wishlist_ById(int Wish_Id)
-        //{
-        //    return this.abstractWishlistDao.Wishlist_ById(Wish_Id);
-        //}
-        //public override PagedList<AbstractWishlist> Wishlist_All(PageParam pageParam, string search,int IsVisibleAll)
-        //{
-        //    return this.abstractWishlistDao.Wishlist_All(pageParam, search, IsVisibleAll);
-        //}
-        //public override SuccessResult<AbstractWishlist> Wishlist_Upsert(AbstractWishlist abstractWishlist)
-        //{
-        //    return this.abstractWishlistDao.Wishlist_Upsert(abstractWishlist);
-        //}
-        //public override SuccessResult<AbstractWishlist> Wishlist_ActInact(int Wish_Id, int Updatedby)
-        //{
-        //    return this.abstractWishlistDao.Wishlist_ActInact(Wish_Id, Updatedby);
-        //}
-        //public override SuccessResult<AbstractWishlist> Wishlist_Delete(int Wish_Id, int Deletedby)
-        //{
-        //    return this.abstractWishlistDao.Wishlist_Delete(Wish_Id, Deletedby);
-        //}
 
-    //}
+        public override SuccessResult<AbstractWishlist> Wishlist_ById(int Wish_Id)
+        {
+            return this.abstractWishlistDao.Wishlist_ById(Wish_Id);
+        }
+        public override PagedList<AbstractWishlist> Wishlist_All(PageParam pageParam, string search, int IsVisibleAll)
+        {
+            return this.abstractWishlistDao.Wishlist_All(pageParam, search, IsVisibleAll);
+        }
+        public override SuccessResult<AbstractWishlist> Wishlist_Upsert(AbstractWishlist abstractWishlist)
+        {
+            return this.abstractWishlistDao.Wishlist_Upsert(abstractWishlist);
+        }
+        public override SuccessResult<AbstractWishlist> Wishlist_ActInact(int Wish_Id, int Updatedby)
+        {
+            return this.abstractWishlistDao.Wishlist_ActInact(Wish_Id, Updatedby);
+        }
+        public override SuccessResult<AbstractWishlist> Wishlist_Delete(int Wish_Id, int Deletedby)
+        {
+            return this.abstractWishlistDao.Wishlist_Delete(Wish_Id, Deletedby);
+        }
+
+    }
 }

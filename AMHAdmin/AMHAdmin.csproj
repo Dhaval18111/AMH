@@ -2107,6 +2107,18 @@
     <Content Include="Icon\ServiceMaster\9\16022022100315_avatar-01.jpeg" />
     <Content Include="Icon\ServiceMaster\9\16022022100835_avatar-06.jpg" />
     <Content Include="Icon\ServiceMaster\9\16022022100839_avatar-06.jpg" />
+    <Content Include="ProductImg\0\24122022022128_2022-11-04 %282%29.png" />
+    <Content Include="ProductImg\0\24122022022235_2022-11-04 %282%29.png" />
+    <Content Include="ProductImg\0\24122022022539_2022-11-04 %281%29.png" />
+    <Content Include="ProductImg\0\24122022022539_2022-11-04 %283%29.png" />
+    <Content Include="ProductImg\0\24122022022637_2022-11-04 %282%29.png" />
+    <Content Include="ProductImg\0\24122022023550_2022-11-23 %281%29.png" />
+    <Content Include="ProductImg\0\24122022023613_2022-11-23 %281%29.png" />
+    <Content Include="ProductImg\0\24122022024427_2022-11-23.png" />
+    <Content Include="ProductImg\0\24122022024708_2022-11-23 %281%29.png" />
+    <Content Include="ProductImg\0\24122022024801_2022-11-04 %283%29.png" />
+    <Content Include="ProductImg\0\24122022024816_2022-11-04 %283%29.png" />
+    <Content Include="ProductImg\0\24122022025038_2022-11-04 %283%29.png" />
     <Content Include="RequestDocuments\0\17022022062303_5.jpg" />
     <Content Include="RequestDocuments\0\17022022063444_1.jpg" />
     <Content Include="RequestDocuments\0\17022022063935_1.jpg" />
@@ -5538,6 +5550,9 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Reports\UsersListing.cshtml" />
+    <Content Include="Views\Reports\OrderListing.cshtml" />
+    <Content Include="Views\Reports\FeedbackListing.cshtml" />
+    <Content Include="Views\Reports\PaymentListing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
